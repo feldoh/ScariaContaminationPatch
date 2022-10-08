@@ -94,7 +94,6 @@ namespace ScariaContaminationPatch.HarmonyPatches
         }
     }
 
-
     [HarmonyPatch(typeof(MentalStateHandler), nameof(MentalStateHandler.TryStartMentalState))]
     public class PatchJobGiver_MentalStateHandler
     {
