@@ -1,6 +1,8 @@
-# ScariaContaminationPatch
+# Scaria Contamination Patch
 
-Makes Scaria targets not target other Scaria target
+Makes scaria sufferers not find their fellows threatening and not threaten their fellows.
+
+Steam Workshop Release: https://steamcommunity.com/sharedfiles/filedetails/?id=2872948543
 
 ## Berserk
 Pawns who go berserk are usually targeted by everyone.
@@ -10,5 +12,4 @@ This does not apply to your own pawns, only the AI.
 This prevents a faction forced scaria turning on itself when the berserk mental states trigger.
 
 ## Attribution
-This mod was originally made by @Garethp
-I have uploaded it to aid collaboration and will hand over the repo as soon as he returns.
+This mod was originally made by [@Garethp](https://github.com/Garethp). This is an extended version of the original and is uploaded with his permission.
