@@ -107,7 +107,6 @@ namespace ScariaContaminationPatch.HarmonyPatches
             bool causedByDamage = false,
             bool causedByPsycast = false)
         {
-            Log.Message("Checking berserk permitted");
             // Prevent scaria ridden non-player pawns going berserk
             if (!MentalStateDefOf.Berserk.Equals(stateDef) ||
                 ___pawn.IsColonist ||
