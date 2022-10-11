@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -118,6 +119,27 @@ namespace ScariaContaminationPatch.HarmonyPatches
 #endif
             __result = false;
             return false;
+        }
+    }
+    
+    [HarmonyPatch(typeof(DamageWorker_AddInjury), "ApplyDamageToPart")]
+    public class PatchDamageWorker_AddInjury
+    {
+        public static void Postfix(DamageInfo dinfo, Pawn pawn, DamageWorker.DamageResult result)
+        {
+            // Everyone knows zombies are weak to headshots.
+            if (!result.headshot || pawn.Destroyed || pawn.Dead ||
+                !pawn.health.hediffSet.HasHediff(HediffDefOf.Scaria) || !pawn.health.hediffSet.HasHead) return;
+#if DEBUG
+            Log.Message($"BOOM Headshot! on {pawn}");
+#endif
+            MoteMaker.ThrowText(new Vector3(pawn.Position.x + 1f, pawn.Position.y, pawn.Position.z + 1f), pawn.Map, "ScariaContaminationPatch_Headshot".Translate(), Color.red);
+            var hediffDefFromDamage = HealthUtility.GetHediffDefFromDamage(dinfo.Def, pawn, dinfo.HitPart);
+            var hediffMissingPart = (Hediff_MissingPart) HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn);
+            hediffMissingPart.lastInjury = hediffDefFromDamage;
+            hediffMissingPart.Part = dinfo.HitPart;
+            pawn.health.AddHediff(hediffMissingPart);
+            if (!pawn.Dead) pawn.health.SetDead();
         }
     }
 }
