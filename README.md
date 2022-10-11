@@ -1,6 +1,9 @@
-# ScariaContaminationPatch
+# Scaria Contamination Patch
 
-Makes Scaria targets not target other Scaria target. This allows for scaria ridden zombie like hordes.
+Makes scaria sufferers not find their fellows threatening and not threaten their fellows.
+This allows for scaria ridden zombie like hordes that don't just turn on each other.
+
+Steam Workshop Release: https://steamcommunity.com/sharedfiles/filedetails/?id=2872948543
 
 ## Berserk
 Pawns who go berserk are usually targeted by everyone.
@@ -14,5 +17,4 @@ Scaria is basically the zombie virus and as we all know zombies are weak to head
 Any headshot on a pawn with scaria will blow their head off immediately.
 
 ## Attribution
-This mod was originally made by @Garethp
-I have uploaded it to aid collaboration and will hand over the repo as soon as he returns.
+This mod was originally made by [@Garethp](https://github.com/Garethp). This is an extended version of the original and is uploaded with his permission.
