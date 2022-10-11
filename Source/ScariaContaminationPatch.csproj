@@ -61,12 +61,10 @@
       <PackageReference Include="Lib.Harmony" version="2.2.2" targetFramework="net472" ExcludeAssets="runtime" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
+    <PropertyGroup>
+        <StartAction>Program</StartAction>
+        <StartProgram>$(SolutionDir)..\..\RimWorldWin64.exe</StartProgram>
+        <StartArguments>-quicktest</StartArguments>
+    </PropertyGroup>
 
 </Project>
