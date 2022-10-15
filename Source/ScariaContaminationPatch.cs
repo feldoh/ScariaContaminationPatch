@@ -1,13 +1,27 @@
 ﻿using HarmonyLib;
+using UnityEngine;
 using Verse;
 
 namespace ScariaContaminationPatch
 {
-    public class Mod: Verse.Mod
+    public class ScariaContaminationPatch: Verse.Mod
     {
-        public Mod(ModContentPack content) : base(content)
+        public static ScariaContaminationPatchSettings Settings;
+        public ScariaContaminationPatch(ModContentPack content) : base(content)
         {
-            new Harmony("Garethp.rimworld.ScariaContainmentPatch.main").PatchAll();
+            new Harmony("Garethp.RimWorld.ScariaContainmentPatch.main").PatchAll();
+            Settings = GetSettings<ScariaContaminationPatchSettings>();
+        }
+        
+        public override void DoSettingsWindowContents(Rect inRect)
+        {
+            base.DoSettingsWindowContents(inRect);
+            Settings.DoWindowContents(inRect);
+        }
+
+        public override string SettingsCategory()
+        {
+            return "Scaria Contamination Patch";
         }
     }
 }
