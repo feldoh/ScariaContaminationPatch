@@ -125,21 +125,45 @@ namespace ScariaContaminationPatch.HarmonyPatches
     [HarmonyPatch(typeof(DamageWorker_AddInjury), "ApplyDamageToPart")]
     public class PatchDamageWorker_AddInjury
     {
+        private static bool instantKillAllowed(Pawn pawn)
+        {
+            return Rand.Chance(ScariaContaminationPatch.Settings.InstantKillChance) &&
+                   (pawn.kindDef.defName.ToLowerInvariant().Contains("zombie") ||
+                    ScariaContaminationPatch.Settings.AllowInstantKillOfNonZombies) &&
+                   ((!pawn.HostFaction?.IsPlayer ?? false) ||
+                    ScariaContaminationPatch.Settings.AllowInstantKillOfGuests) &&
+                   (!pawn.Faction.IsPlayerSafe() || ScariaContaminationPatch.Settings.AllowInstantKillOfPlayerFaction);
+        }
+        
         public static void Postfix(DamageInfo dinfo, Pawn pawn, DamageWorker.DamageResult result)
         {
             // Everyone knows zombies are weak to headshots.
-            if (!result.headshot || pawn.Destroyed || pawn.Dead ||
-                !pawn.health.hediffSet.HasHediff(HediffDefOf.Scaria) || !pawn.health.hediffSet.HasHead) return;
+            if (!result.headshot || !pawn.health.hediffSet.HasHediff(HediffDefOf.Scaria) || pawn.Destroyed ||
+                pawn.Dead ||
+                !(pawn.health?.hediffSet?.HasHead ?? false)) return;
 #if DEBUG
             Log.Message($"BOOM Headshot! on {pawn}");
 #endif
-            MoteMaker.ThrowText(new Vector3(pawn.Position.x + 1f, pawn.Position.y, pawn.Position.z + 1f), pawn.Map, "ScariaContaminationPatch_Headshot".Translate(), Color.red);
-            var hediffDefFromDamage = HealthUtility.GetHediffDefFromDamage(dinfo.Def, pawn, dinfo.HitPart);
-            var hediffMissingPart = (Hediff_MissingPart) HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn);
-            hediffMissingPart.lastInjury = hediffDefFromDamage;
-            hediffMissingPart.Part = dinfo.HitPart;
-            pawn.health.AddHediff(hediffMissingPart);
-            if (!pawn.Dead) pawn.health.SetDead();
+            if (instantKillAllowed(pawn))
+            {
+                MoteMaker.ThrowText(new Vector3(pawn.Position.x + 1f, pawn.Position.y, pawn.Position.z + 1f), pawn.Map,
+                    "ScariaContaminationPatch_Headshot".Translate(), Color.red);
+                var hediffDefFromDamage = HealthUtility.GetHediffDefFromDamage(dinfo.Def, pawn, dinfo.HitPart);
+                var hediffMissingPart = (Hediff_MissingPart)HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn);
+                hediffMissingPart.lastInjury = hediffDefFromDamage;
+                hediffMissingPart.Part = dinfo.HitPart;
+                pawn.health.AddHediff(hediffMissingPart);
+                if (!pawn.Dead) pawn.health.SetDead();
+            }
+            else
+            {
+                // Leave them a single hit point on the head, may not work if the injury has been merged but that's just luck.
+                var damageTarget = pawn.health.hediffSet.GetPartHealth(dinfo.HitPart) - 1;
+                var hediff = result.hediffs.Find(h => h.Part?.Equals(dinfo.HitPart) == true);
+                if (hediff == null) return;
+                hediff.Severity += damageTarget;
+                result.totalDamageDealt += damageTarget;
+            }
         }
     }
 }
