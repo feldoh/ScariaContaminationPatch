@@ -350,3 +350,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 .idea/.idea.ScariaContaminationPatch/.idea/workspace.xml
+1.*/Source/.idea/.idea.*/.idea/workspace.xml

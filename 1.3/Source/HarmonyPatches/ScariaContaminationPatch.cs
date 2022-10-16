@@ -125,6 +125,7 @@ namespace ScariaContaminationPatch.HarmonyPatches
     [HarmonyPatch(typeof(DamageWorker_AddInjury), "ApplyDamageToPart")]
     public class PatchDamageWorker_AddInjury
     {
+        private static int lastTick;
         private static bool instantKillAllowed(Pawn pawn)
         {
             return Rand.Chance(ScariaContaminationPatch.Settings.InstantKillChance) &&
@@ -137,10 +138,19 @@ namespace ScariaContaminationPatch.HarmonyPatches
         
         public static void Postfix(DamageInfo dinfo, Pawn pawn, DamageWorker.DamageResult result)
         {
+#if DEBUG
+            Log.Message($"Next headshot at {lastTick + ScariaContaminationPatch.Settings.CriticalHeadshotCooldown}, current {Find.TickManager.TicksGame} : {lastTick + ScariaContaminationPatch.Settings.CriticalHeadshotCooldown - Find.TickManager.TicksGame}");
+#endif
             // Everyone knows zombies are weak to headshots.
-            if (!result.headshot || !pawn.health.hediffSet.HasHediff(HediffDefOf.Scaria) || pawn.Destroyed ||
+            int ticks;
+            if (!result.headshot ||
+                (ticks = Find.TickManager.TicksGame) < lastTick + ScariaContaminationPatch.Settings.CriticalHeadshotCooldown ||
+                !pawn.health.hediffSet.HasHediff(HediffDefOf.Scaria) ||
+                pawn.Destroyed ||
                 pawn.Dead ||
                 !(pawn.health?.hediffSet?.HasHead ?? false)) return;
+            
+            lastTick = ticks;
 #if DEBUG
             Log.Message($"BOOM Headshot! on {pawn}");
 #endif
