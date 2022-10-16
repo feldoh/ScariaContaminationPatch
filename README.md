@@ -20,7 +20,10 @@ This prevents a faction forced scaria turning on itself when the berserk mental 
 Scaria is basically the zombie virus and as we all know zombies are weak to headshots.
 Any headshot on a pawn with scaria will blow their head off immediately.
 
-This is configurable in the mod settings to protect your own faction and visitors from the instant-kill mechanic.  
+This is configurable in the mod settings to protect your own faction and visitors from the instant-kill mechanic.
+
+If you're finding it's happening too often for your liking you can either tune down the chance for an instant kill or increase the cooldown ticks.
+Remember at speed 1 there are 60 ticks a second so if you want a critical headshot at most every 10 seconds you'd set it to 600.
 
 ## Renaming Scaria
 To improve the cohesion of playing with Scaria like the zombie virus this mod adds translations to rename Scaria to Zombie Virus.
