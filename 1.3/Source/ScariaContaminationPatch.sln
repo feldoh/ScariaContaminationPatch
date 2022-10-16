@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScariaContaminationPatch", "Source\ScariaContaminationPatch.csproj", "{B88F738D-60FC-4D39-A5E9-5459C1D5A86B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScariaContaminationPatch", "ScariaContaminationPatch.csproj", "{B88F738D-60FC-4D39-A5E9-5459C1D5A86B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
