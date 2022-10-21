@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
     <PropertyGroup>
@@ -64,7 +64,7 @@
       <PackageReference Include="Lib.Harmony" version="2.2.2" targetFramework="net472" ExcludeAssets="runtime" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="..\..\..\..\Data\*\Defs\**\*">
+        <Content Include="..\..\..\..\Data\**\*">
             <Link>AttachedDefs\Rimworld\%(RecursiveDir)\%(FileName)%(Extension)</Link>
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </Content>
@@ -79,34 +79,15 @@
         <ReleaseFiles Include="..\..\1.*\**" Exclude="..\..\1.*\Source\**" />
         <AboutFiles Include="..\..\About\**" />
         <CommonFiles Include="..\..\Common\**" />
+        <CompatibilityFiles Include="..\..\Compatibility\**" />
         <ExtraFiles Include="..\..\LoadFolders.xml;..\..\LICENSE" />
-        <CommonFiles Update="..\..\Common\Languages\English\DefInjected\HediffDef\Hediffs_Scaria.xml">
-          <Link>ScariaContaminationPatch\Common\Languages\English\DefInjected\HediffDef\Hediffs_Scaria.xml</Link>
-        </CommonFiles>
-        <CommonFiles Update="..\..\Common\Languages\English\DefInjected\RecipeDef\Hediffs_Local_Misc.xml">
-          <Link>ScariaContaminationPatch\Common\Languages\English\DefInjected\RecipeDef\Hediffs_Local_Misc.xml</Link>
-        </CommonFiles>
-        <CommonFiles Update="..\..\Common\Languages\English\DefInjected\SitePartDef\Hediffs_Local_Misc.xml">
-          <Link>ScariaContaminationPatch\Common\Languages\English\DefInjected\SitePartDef\Hediffs_Local_Misc.xml</Link>
-        </CommonFiles>
-        <CommonFiles Update="..\..\Common\Languages\English\DefInjected\IncidentDef\Manhunters.xml">
-          <Link>ScariaContaminationPatch\Common\Languages\English\DefInjected\IncidentDef\Manhunters.xml</Link>
-        </CommonFiles>
-        <CommonFiles Update="..\..\Common\Languages\English\DefInjected\IncidentDef\Incidents_Map_Threats.xml">
-          <Link>ScariaContaminationPatch\Common\Languages\English\DefInjected\IncidentDef\Incidents_Map_Threats.xml</Link>
-        </CommonFiles>
-        <CommonFiles Update="..\..\Common\Languages\English\DefInjected\ResearchProjectDef\Manhunters.xml">
-          <Link>ScariaContaminationPatch\Common\Languages\English\DefInjected\ResearchProjectDef\Manhunters.xml</Link>
-        </CommonFiles>
-        <CommonFiles Update="..\..\Common\Languages\English\DefInjected\ThingDef\ResearchProjects_Various.xml">
-          <Link>ScariaContaminationPatch\Common\Languages\English\DefInjected\ThingDef\ResearchProjects_Various.xml</Link>
-        </CommonFiles>
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Directories="..\..\Release" />
         <Delete Files="..\..\ScariaContaminationPatch.zip" />
         <Copy SourceFiles="@(AboutFiles)" DestinationFiles="@(AboutFiles->'..\..\Release\ScariaContaminationPatch\About\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
         <Copy SourceFiles="@(CommonFiles)" DestinationFiles="@(CommonFiles->'..\..\Release\ScariaContaminationPatch\Common\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(CompatibilityFiles)" DestinationFiles="@(CompatibilityFiles->'..\..\Release\ScariaContaminationPatch\Compatibility\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
         <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles->'..\..\Release\ScariaContaminationPatch\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
         <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="..\..\Release\ScariaContaminationPatch\" SkipUnchangedFiles="false" />
         <ZipDirectory DestinationFile="..\..\ScariaContaminationPatch.zip" SourceDirectory="..\..\Release" />

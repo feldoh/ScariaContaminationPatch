@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CureScariaBanacea.label>cure the zombie virus with banacea</CureScariaBanacea.label>
+  <CureScariaBanacea.description>Use banacea's special properties to cure the zombie virus.</CureScariaBanacea.description>
+  <CureScariaBanacea.jobString>Curing the zombie virus with banacea.</CureScariaBanacea.jobString>
+  <CureScariaBanacea.successfullyRemovedHediffMessage>{0} has successfully cured {1}'s zombie virus using banacea.</CureScariaBanacea.successfullyRemovedHediffMessage>
+</LanguageData>

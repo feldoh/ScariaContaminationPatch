@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LanguageData>
   <ManhunterAmbush.label>infected animals ambush</ManhunterAmbush.label>
   <ManhunterAmbush.letterText>{0} has been ambushed by manhunting infected {1}!</ManhunterAmbush.letterText>

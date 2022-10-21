@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+  <!-- Long events -->
+  <InitializingInterface>Initializing shakycam</InitializingInterface>
+  <UnloadingUnusedAssets>Unloading unused monsters</UnloadingUnusedAssets>
+  <LoadingAllActiveMods>Loading all active evils</LoadingAllActiveMods>
+  <LoadingDefs>Loading blueprints of spooky hospitals</LoadingDefs>
+  <LoadingAssets>Loading zombies</LoadingAssets>
+  <Initializing>Shuffling into position</Initializing>
+  <LoadingWorld>Loading graveyards</LoadingWorld>
+  <LoadingMap>Loading safe zone</LoadingMap>
+  <InitializingGame>Opening the crypts</InitializingGame>
+  <SpawningAllThings>Summoning the undead horde</SpawningAllThings>
+  <SpawningColonists>Spawning colonists</SpawningColonists>
+
+  <!-- Save/load -->
+  <SaveGameButton>Chronicle your survival</SaveGameButton>
+  <LoadGameButton>Resume the struggle</LoadGameButton>
+  <DeleteThisSavegame>Delete this chronicle of survival.</DeleteThisSavegame>
+  <LoadingLongEvent>Resuming the struggle</LoadingLongEvent>
+  <SavingLongEvent>Chronicling survival</SavingLongEvent>
+
+  <Selling>what are you selling</Selling>
+  <Buying>what are you buying</Buying>
+
+  <!-- Abandon home -->
+  <ConfirmAbandonHomeWithColonyPawns>Some of your colonists or animals are in this area. Are you sure you want to abandon it to the hordes?\n\nThe following people and animals will be left behind:\n\n{0}</ConfirmAbandonHomeWithColonyPawns>
+  <ConfirmAbandonHomeNegativeThoughts>Leaving {0} to it's fate will cause the following people to get the following thoughts:</ConfirmAbandonHomeNegativeThoughts>
+
+  <!-- Move caravan and leave prisoners and animals behind -->
+  <ConfirmMoveAutoJoinableCaravan>Some animals or prisoners are trying to join this caravan. If you move it, they won't be able to anymore.\n\nAnimals, prisoners, and downed colonists left behind in a map without any non-downed colonists are considered abandoned and can be captured by the enemies or attacked by the zombie hordes.\n\nAre you sure you want to move your caravan?</ConfirmMoveAutoJoinableCaravan>
+
+  <!-- Abandon pawn -->
+  <ConfirmBanishPawnDialog>Do you really want to banish {1_label}? They may not survive the night.</ConfirmBanishPawnDialog>
+  <ConfirmBanishPawnDialog_LeftToDie>{1_labelShort} will most likely die if they aren't eaten first.</ConfirmBanishPawnDialog_LeftToDie>
+</LanguageData>
