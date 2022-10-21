@@ -3,5 +3,6 @@
     <v1.3>
         <li>Common</li>
         <li>1.3</li>
+        <li IfModActive="CatLover366.MonkeTime">Compatibility/CatLover366.MonkeTime</li>
     </v1.3>
 </loadFolders>

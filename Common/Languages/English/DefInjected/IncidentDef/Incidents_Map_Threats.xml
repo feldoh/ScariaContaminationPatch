@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LanguageData>
   <ManhunterPack.label>infected animals pack</ManhunterPack.label>
   <ManhunterPack.letterText>{0} has been ambushed by manhunting zombified {1}!</ManhunterPack.letterText>
