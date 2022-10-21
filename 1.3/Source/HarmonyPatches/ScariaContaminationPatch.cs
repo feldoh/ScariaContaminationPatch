@@ -163,7 +163,6 @@ namespace ScariaContaminationPatch.HarmonyPatches
                 hediffMissingPart.lastInjury = hediffDefFromDamage;
                 hediffMissingPart.Part = dinfo.HitPart;
                 pawn.health.AddHediff(hediffMissingPart);
-                if (!pawn.Dead) pawn.health.SetDead();
             }
             else
             {
