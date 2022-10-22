@@ -14,7 +14,7 @@ namespace ScariaContaminationPatch
         public bool AllowInstantKillOfGuests;
         public float InstantKillChance;
         public int CriticalHeadshotCooldown;
-        public string CriticalHeadshotCooldownEditBuffer;
+        private string _criticalHeadshotCooldownEditBuffer;
         
         public void DoWindowContents(Rect wrect)
         {
@@ -26,7 +26,7 @@ namespace ScariaContaminationPatch
             _options.GapLine();
             _options.Gap();
             _options.Label("ScariaContaminationPatch_CriticalHeadshotCooldown".Translate());
-            _options.IntEntry(ref CriticalHeadshotCooldown, ref CriticalHeadshotCooldownEditBuffer);
+            _options.IntEntry(ref CriticalHeadshotCooldown, ref _criticalHeadshotCooldownEditBuffer);
             _options.GapLine();
             _options.Gap();
             var instantKillChanceRect = _options.GetRect(RowHeight);
