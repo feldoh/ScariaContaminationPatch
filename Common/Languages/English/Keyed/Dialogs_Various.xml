@@ -7,16 +7,16 @@
   <LoadingAllActiveMods>Loading all active evils</LoadingAllActiveMods>
   <LoadingDefs>Loading blueprints of spooky hospitals</LoadingDefs>
   <LoadingAssets>Loading zombies</LoadingAssets>
-  <Initializing>Shuffling into position</Initializing>
+  <Initializing>Opening the crypts</Initializing>
   <LoadingWorld>Loading graveyards</LoadingWorld>
   <LoadingMap>Loading safe zone</LoadingMap>
-  <InitializingGame>Opening the crypts</InitializingGame>
+  <InitializingGame>Shuffling into position</InitializingGame>
   <SpawningAllThings>Summoning the undead horde</SpawningAllThings>
   <SpawningColonists>Spawning colonists</SpawningColonists>
 
   <!-- Save/load -->
   <SaveGameButton>Chronicle your survival</SaveGameButton>
-  <LoadGameButton>Resume the struggle</LoadGameButton>
+  <LoadGameButton>Recall struggle</LoadGameButton>
   <DeleteThisSavegame>Delete this chronicle of survival.</DeleteThisSavegame>
   <LoadingLongEvent>Resuming the struggle</LoadingLongEvent>
   <SavingLongEvent>Chronicling survival</SavingLongEvent>

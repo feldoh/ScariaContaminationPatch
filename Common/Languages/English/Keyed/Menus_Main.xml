@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Main menu -->
+  <BackToGame>Resume struggle</BackToGame>
+  <Save>Record adversity</Save>
+  <LoadGame>Reminisce</LoadGame>
+  <QuitToMainMenu>Flee to menu</QuitToMainMenu>
+  <SaveAndQuitToMainMenu>Record tale and flee to menu</SaveAndQuitToMainMenu>
+  <QuitToOS>Escape to OS</QuitToOS>
+  <SaveAndQuitToOS>Record tale and flee to OS</SaveAndQuitToOS>
+  <ConfirmQuit>Fleeing for your life already? You'll lose any part of your tale that has not been recorded.</ConfirmQuit>
+  
+</LanguageData>

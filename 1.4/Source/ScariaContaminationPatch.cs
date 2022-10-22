@@ -4,7 +4,7 @@ using Verse;
 
 namespace ScariaContaminationPatch
 {
-    public class ScariaContaminationPatch: Verse.Mod
+    public class ScariaContaminationPatch: Mod
     {
         public static ScariaContaminationPatchSettings Settings;
         public ScariaContaminationPatch(ModContentPack content) : base(content)
