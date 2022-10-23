@@ -67,34 +67,6 @@ namespace ScariaContaminationPatch.HarmonyPatches
         }
     }
 
-    [HarmonyPatch(typeof(JobGiver_AIDefendPawn), "FindAttackTarget")]
-    public class PatchJobGiver_AIDefendPawn
-    {
-        public static bool Prefix(ref Thing __result, JobGiver_AIDefendPawn __instance,
-            bool ___attackMeleeThreatEvenIfNotHostile, Pawn pawn)
-        {
-            // Early exit as we don't want to do reflection unless we have to if this isn't set it'll be caught by the other patches
-            if (!___attackMeleeThreatEvenIfNotHostile) return true;
-            
-            var defendee = Traverse.Create(__instance).Method("GetDefendee").GetValue<Pawn>();
-            if (!(pawn.IsColonistPlayerControlled ||
-                  !(defendee.mindState.meleeThreat is Pawn pawnTarget) ||
-                  pawnTarget.def.race.intelligence < Intelligence.ToolUser ||
-                  !(MentalStateDefOf.Berserk.Equals(pawnTarget.MentalStateDef) ||
-                    MentalStateDefOf.Manhunter.Equals(pawnTarget.MentalStateDef) ||
-                    MentalStateDefOf.ManhunterPermanent.Equals(pawnTarget.MentalStateDef)) ||
-                  !defendee.health.hediffSet.HasHediff(HediffDefOf.Scaria)))
-            {
-#if DEBUG
-                Log.Message("Reset melee threat");
-#endif
-                defendee.mindState.meleeThreat = null;
-            }
-
-            return true;
-        }
-    }
-
     [HarmonyPatch(typeof(MentalStateHandler), nameof(MentalStateHandler.TryStartMentalState))]
     public class PatchJobGiver_MentalStateHandler
     {
