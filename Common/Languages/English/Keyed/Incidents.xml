@@ -2,30 +2,27 @@
 
 <LanguageData>
   <LetterLabelManhunterPackArrived>Infected pack</LetterLabelManhunterPackArrived>
-  <ManhunterPackArrived>A pack of {0}, infected with the zombie virus have entered the area! They will roam the region, hunting for brains.\n\nThey no longer have the mental capacity to understand doors and won't attack them unless they see someone use one. Hide inside and you might survive the night. As they are so focused on brains they also won't recognise powered-off turrets as a threat, so turn your turrets off to save them.\n\nThe {0} will lurch out of the area in one or two days. You can hide and wait them out, or get out there and exterminate the zombie plague.</ManhunterPackArrived>
 
   <!-- Self-tame -->
   <LetterLabelAnimalSelfTame>{1_kind} wants safety</LetterLabelAnimalSelfTame>
-  <LetterAnimalSelfTame>{0} has recognised this community as safe from the zombie plague and has decided to stay with you.</LetterAnimalSelfTame>
-  <LetterAnimalSelfTameAndNameNumerical>{0} has recognised this community as safe from the zombie plague and has decided to stay with you. It is now designated {ANIMAL_nameFull}.</LetterAnimalSelfTameAndNameNumerical>
-  <LetterAnimalSelfTameAndName>{0} has recognised this community as safe from the zombie plague and has decided to stay with you. Colonists have decided to name it {ANIMAL_nameFull}.</LetterAnimalSelfTameAndName>
+  <LetterAnimalSelfTame>{0} has recognised this community as safe from the infected and has decided to stay with you.</LetterAnimalSelfTame>
+  <LetterAnimalSelfTameAndNameNumerical>{0} has recognised this community as safe from the infected and has decided to stay with you. It is now designated {ANIMAL_nameFull}.</LetterAnimalSelfTameAndNameNumerical>
+  <LetterAnimalSelfTameAndName>{0} has recognised this community as safe from the infected and has decided to stay with you. Colonists have decided to name it {ANIMAL_nameFull}.</LetterAnimalSelfTameAndName>
 
   <!-- Farm animals wander in -->
   <LetterLabelFarmAnimalsWanderIn>{0} want shelter</LetterLabelFarmAnimalsWanderIn>
-  <LetterFarmAnimalsWanderIn>A group of {0}, abandoned or lost, have wandered into the area.\n\nThey seem accustomed to human contact and seem to recognise this place as a haven from zombie attacks.\n\nThey have decided they are joining the colony.</LetterFarmAnimalsWanderIn>
+  <LetterFarmAnimalsWanderIn>A group of {0}, abandoned or lost, have wandered into the area.\n\nThey seem accustomed to human contact and seem to recognise this place as a haven
+    from infected attacks.\n\nThey have decided they are joining the colony.</LetterFarmAnimalsWanderIn>
 
   <!-- Trader caravan -->
   <LetterTraderCaravanArrival>A caravan from {0} is approaching. They are a {1} and appear to want to camp in relative safety for a while.</LetterTraderCaravanArrival>
-  <LetterCaravanArrivalCommonWarning>They wish to stay near the colony while they prepare to face the zombie plague once more. They will hang around for some time before leaving. You can attack them - but this will anger their faction!</LetterCaravanArrivalCommonWarning>
-
-  <!-- Ransom demand -->
-  <RansomDemand>{1} contacts you on radio. They are holding former colonist {PAWN_labelShort} for ransom.\n\nThey're willing to release {PAWN_objective} back to you in exchange for {2} silver.\n\nIf you decline they cannot guarantee they'll want more than your brains the next time you meet.</RansomDemand>
+  <LetterCaravanArrivalCommonWarning>They wish to stay near the colony while they prepare to face the infected once more. They will hang around for some time before leaving. You can attack them - but this will anger their faction!</LetterCaravanArrivalCommonWarning>
 
   <!-- Journey-related -->
   <EscapeShipFoundLabel>Ship found</EscapeShipFoundLabel>
-  <EscapeShipFound>You've reached the coordinates sent by (*Name)Charlon Whitestone(/Name) and discovered the hidden starship.\n\nThe ship's reactor is still in deep hibernation mode, so it can't fly yet. You can start it up by interacting with the computer core.\n\n(*Name)Charlon Whitestone(/Name) warns you that the startup process will take about 15 days, and the energy signature will be detectable from a long distance away. This sort of energy signature indicates interstellar flight capability, and will attract those desperate to escape the zombie hordes. Unfortunately the frequency of the signal irritates the zombies and they will also come to stop the noise at any cost.\n\nYou will be assaulted with an intensity you've never seen. Make sure your defenses are prepared first.</EscapeShipFound>
+  <EscapeShipFound>You've reached the coordinates sent by (*Name)Charlon Whitestone(/Name) and discovered the hidden starship.\n\nThe ship's reactor is still in deep hibernation mode, so it can't fly yet. You can start it up by interacting with the computer core.\n\n(*Name)Charlon Whitestone(/Name) warns you that the startup process will take about 15 days, and the energy signature will be detectable from a long distance away. This sort of energy signature indicates interstellar flight capability, and will attract those desperate to escape the infected hordes. Unfortunately the frequency of the signal irritates the infected and they will also come to stop the noise at any cost.\n\nYou will be assaulted with an intensity you've never seen. Make sure your defenses are prepared first.</EscapeShipFound>
 
   <!-- Caravan meeting -->
   <CaravanMeetingTitle>Caravan meeting by {0}</CaravanMeetingTitle>
-  <CaravanMeeting>{0} has met peacefully with a caravan from {1}. They do not appear to be zombies but you can never be sure they aren't hiding the bites. The other caravan is composed of:\n\n{2}</CaravanMeeting>
+  <CaravanMeeting>{0} has met peacefully with a caravan from {1}. They do not appear to be infected but you can never be sure they aren't still incubating. The other caravan is composed of:\n\n{2}</CaravanMeeting>
 </LanguageData>

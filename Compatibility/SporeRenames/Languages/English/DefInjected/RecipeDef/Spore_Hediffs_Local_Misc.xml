@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+  <CureScaria.label>neutralize aggression spores</CureScaria.label>
+  <CureScaria.description>This special medical operation neutralizes aggression spores, regenerating flushing them from the system and restoring normal brain function
+    .</CureScaria.description>
+  <CureScaria.jobString>Neutralizing aggression spores</CureScaria.jobString>
+  <CureScaria.successfullyRemovedHediffMessage>{1} is no longer consumed by the spores thanks to {0}.</CureScaria.successfullyRemovedHediffMessage>
+</LanguageData>
