@@ -80,7 +80,7 @@
         <AboutFiles Include="..\..\About\**" />
         <CommonFiles Include="..\..\Common\**" />
         <CompatibilityFiles Include="..\..\Compatibility\**" />
-        <ExtraFiles Include="..\..\LoadFolders.xml;..\..\LICENSE" />
+        <ExtraFiles Include="..\..\LoadFolders.xml;..\..\LICENSE;..\..\README.md" />
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
         <RemoveDir Directories="..\..\Release" />
@@ -91,6 +91,5 @@
         <Copy SourceFiles="@(ReleaseFiles)" DestinationFiles="@(ReleaseFiles->'..\..\Release\ScariaContaminationPatch\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="false" />
         <Copy SourceFiles="@(ExtraFiles)" DestinationFolder="..\..\Release\ScariaContaminationPatch\" SkipUnchangedFiles="false" />
         <ZipDirectory DestinationFile="..\..\ScariaContaminationPatch.zip" SourceDirectory="..\..\Release" />
-        <RemoveDir Directories="obj" />
     </Target>
 </Project>

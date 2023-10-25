@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <loadFolders>
-    <!-- For now at least 1.3 and 1.4 are compatible so there's no need to duplicate -->
     <v1.3>
         <li>Common</li>
+        <!-- For now at least 1.3 and 1.4 are compatible so there's no need to duplicate -->
         <li>1.4</li>
         <li IfModActive="CatLover366.MonkeTime">Compatibility/CatLover366.MonkeTime</li>
+        <li IfModActive="Mlie.WaSkeleton,zombiefied.zombiefied,brrainz.zombieland">Compatibility/ZombieRenames</li>
+        <li IfModNotActive="Mlie.WaSkeleton,zombiefied.zombiefied,brrainz.zombieland" IfModActive="vanillaracesexpanded.fungoid">Compatibility/SporeRenames</li>
     </v1.3>
     <v1.4>
         <li>Common</li>
         <li>1.4</li>
         <li IfModActive="CatLover366.MonkeTime">Compatibility/CatLover366.MonkeTime</li>
+        <li IfModActive="Mlie.WaSkeleton,zombiefied.zombiefied,brrainz.zombieland">Compatibility/ZombieRenames</li>
+        <li IfModNotActive="Mlie.WaSkeleton,zombiefied.zombiefied,brrainz.zombieland" IfModActive="vanillaracesexpanded.fungoid">Compatibility/SporeRenames</li>
     </v1.4>
 </loadFolders>

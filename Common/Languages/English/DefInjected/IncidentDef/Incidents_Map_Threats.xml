@@ -2,6 +2,6 @@
 
 <LanguageData>
   <ManhunterPack.label>infected animals pack</ManhunterPack.label>
-  <ManhunterPack.letterText>{0} has been ambushed by manhunting zombified {1}!</ManhunterPack.letterText>
-  <ManhunterPack.letterLabel>Caravan ambushed (zombified animals)</ManhunterPack.letterLabel>
+  <ManhunterPack.letterText>{0} has been ambushed by manhunting infected {1}!</ManhunterPack.letterText>
+  <ManhunterPack.letterLabel>Caravan ambushed (infected animals)</ManhunterPack.letterLabel>
 </LanguageData>

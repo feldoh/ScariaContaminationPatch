@@ -6,12 +6,12 @@
   <UnloadingUnusedAssets>Unloading unused monsters</UnloadingUnusedAssets>
   <LoadingAllActiveMods>Loading all active evils</LoadingAllActiveMods>
   <LoadingDefs>Loading blueprints of spooky hospitals</LoadingDefs>
-  <LoadingAssets>Loading zombies</LoadingAssets>
+  <LoadingAssets>Loading infected</LoadingAssets>
   <Initializing>Opening the crypts</Initializing>
   <LoadingWorld>Loading graveyards</LoadingWorld>
   <LoadingMap>Loading safe zone</LoadingMap>
   <InitializingGame>Shuffling into position</InitializingGame>
-  <SpawningAllThings>Summoning the undead horde</SpawningAllThings>
+  <SpawningAllThings>Summoning the horde</SpawningAllThings>
   <SpawningColonists>Spawning colonists</SpawningColonists>
 
   <!-- Save/load -->
@@ -29,7 +29,7 @@
   <ConfirmAbandonHomeNegativeThoughts>Leaving {0} to it's fate will cause the following people to get the following thoughts:</ConfirmAbandonHomeNegativeThoughts>
 
   <!-- Move caravan and leave prisoners and animals behind -->
-  <ConfirmMoveAutoJoinableCaravan>Some animals or prisoners are trying to join this caravan. If you move it, they won't be able to anymore.\n\nAnimals, prisoners, and downed colonists left behind in a map without any non-downed colonists are considered abandoned and can be captured by the enemies or attacked by the zombie hordes.\n\nAre you sure you want to move your caravan?</ConfirmMoveAutoJoinableCaravan>
+  <ConfirmMoveAutoJoinableCaravan>Some animals or prisoners are trying to join this caravan. If you move it, they won't be able to anymore.\n\nAnimals, prisoners, and downed colonists left behind in a map without any non-downed colonists are considered abandoned and can be captured by the enemies or attacked by the infected.\n\nAre you sure you want to move your caravan?</ConfirmMoveAutoJoinableCaravan>
 
   <!-- Abandon pawn -->
   <ConfirmBanishPawnDialog>Do you really want to banish {1_label}? They may not survive the night.</ConfirmBanishPawnDialog>

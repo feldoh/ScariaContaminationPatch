@@ -29,10 +29,9 @@ namespace ScariaContaminationPatch
             _options.IntEntry(ref CriticalHeadshotCooldown, ref _criticalHeadshotCooldownEditBuffer);
             _options.GapLine();
             _options.Gap();
-            var instantKillChanceRect = _options.GetRect(RowHeight);
-            var instantKillChanceLabel = "ScariaContaminationPatch_InstantKillChance".Translate(InstantKillChance * 100);
-            InstantKillChance = Widgets.HorizontalSlider(instantKillChanceRect, InstantKillChance * 100, 0f, 100.0f, true,
-                instantKillChanceLabel, "0", "100", 0.5f) / 100f;
+            Rect instantKillChanceRect = _options.GetRect(RowHeight);
+            string instantKillChanceLabel = "ScariaContaminationPatch_InstantKillChance".Translate(InstantKillChance * 100);
+            Widgets.HorizontalSlider(instantKillChanceRect, ref InstantKillChance, new FloatRange(0f, 1f), instantKillChanceLabel);
             _options.Gap();
             _options.End();
         }

@@ -25,9 +25,19 @@ This is configurable in the mod settings to protect your own faction and visitor
 If you're finding it's happening too often for your liking you can either tune down the chance for an instant kill or increase the cooldown ticks.
 Remember at speed 1 there are 60 ticks a second so if you want a critical headshot at most every 10 seconds you'd set it to 600.
 
-## Renaming Scaria
+## Renaming Scaria (Zombie Virus)
 To improve the cohesion of playing with Scaria like the zombie virus this mod adds translations to rename Scaria to Zombie Virus.
 If you know of any other mods adding Scaria you'd like to be compatible just ask or better yet make a PR on Github.
+
+Note that the more explicit zombie renames are restricted to only appear if you include a supported mod:
+* [Zombiefied (Zombie Apocalypse)](https://steamcommunity.com/workshop/filedetails/?id=1541353047)
+* [Wa! Skeleton! (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2159119022)
+* [Zombieland](https://steamcommunity.com/sharedfiles/filedetails/?id=928376710)
+
+### Renaming Scaria (Aggression Spores)
+There are more than just your classic zombies wandering around so if you don't have one of the more obvious zombie mods listed above but you do have one of the Fungal centric mods listed below you'll instead get a more fungal themed set of renames. 
+
+* [Vanilla Races Expanded - Fungoid](https://steamcommunity.com/sharedfiles/filedetails/?id=3042690053)
 
 ## Attribution
 This mod was originally made by [@Garethp](https://github.com/Garethp). This is an extended version of the original and is uploaded with his permission.
