@@ -16,7 +16,7 @@
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugSymbols>true</DebugSymbols>
-        <DebugType>none</DebugType>
+        <DebugType>portable</DebugType>
         <Optimize>false</Optimize>
         <OutputPath>../Assemblies</OutputPath>
         <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -54,6 +54,12 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Comps\CompProperties_UseEffect_RemoveHediff.cs" />
+        <Compile Include="Comps\CompUseEffect_RemoveHediff.cs" />
+        <Compile Include="Comps\HediffCompProperties_DevelopmentPointsOnRemoved.cs" />
+        <Compile Include="Comps\HediffComp_DevelopmentPointsOnRemoved.cs" />
+        <Compile Include="Comps\PreceptComp_CuringDevelopmentPoints.cs" />
+        <Compile Include="HarmonyPatches\FungoidPatch.cs" />
         <Compile Include="ScariaContaminationPatch.cs" />
         <Compile Include="HarmonyPatches\ScariaContaminationPatch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

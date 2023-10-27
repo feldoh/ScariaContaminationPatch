@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+  <!-- Issue -->
+
+  <IssueDef>
+    <defName>Taggerung_SCP_Curing</defName>
+    <label>disease control</label>
+    <iconPath>UI/Issues/PhysicalLove</iconPath>
+  </IssueDef>
+
+  <!-- Precept -->
+
+  <PreceptDef>
+    <defName>Taggerung_SCP_Curing_Neutral</defName>
+    <issue>Taggerung_SCP_Curing</issue>
+    <label>neutral</label>
+    <description>Curing disease is nothing special.</description>
+    <impact>Low</impact>
+    <displayOrderInIssue>0</displayOrderInIssue>
+    <displayOrderInImpact>-100</displayOrderInImpact>
+    <classic>false</classic>
+    <defaultSelectionWeight>1</defaultSelectionWeight>
+    <comps />
+    <associatedMemes />
+  </PreceptDef>
+
+  <PreceptDef>
+    <defName>Taggerung_SCP_Curing_Desired</defName>
+    <issue>Taggerung_SCP_Curing</issue>
+    <label>desired</label>
+    <description>Healing the sick is always a good thing.</description>
+    <impact>Low</impact>
+    <displayOrderInIssue>0</displayOrderInIssue>
+    <displayOrderInImpact>-100</displayOrderInImpact>
+    <classic>false</classic>
+    <defaultSelectionWeight>1</defaultSelectionWeight>
+    <comps>
+      <li Class="ScariaContaminationPatch.Comps.PreceptComp_CuringDevelopmentPoints">
+        <curePointsMultiplier>1</curePointsMultiplier>
+        <minPoints>1</minPoints>
+        <maxPoints>10</maxPoints>
+      </li>
+    </comps>
+    <associatedMemes />
+  </PreceptDef>
+
+  <PreceptDef>
+    <defName>Taggerung_SCP_Curing_Honorable</defName>
+    <issue>Taggerung_SCP_Curing</issue>
+    <label>honourable</label>
+    <description>Healing the sick is a moral imperative.</description>
+    <impact>Low</impact>
+    <displayOrderInIssue>0</displayOrderInIssue>
+    <displayOrderInImpact>-100</displayOrderInImpact>
+    <classic>false</classic>
+    <defaultSelectionWeight>1</defaultSelectionWeight>
+    <comps>
+      <li Class="ScariaContaminationPatch.Comps.PreceptComp_CuringDevelopmentPoints">
+        <curePointsMultiplier>2</curePointsMultiplier>
+        <minPoints>1</minPoints>
+        <maxPoints>10</maxPoints>
+      </li>
+    </comps>
+    <associatedMemes />
+  </PreceptDef>
+
+</Defs>
