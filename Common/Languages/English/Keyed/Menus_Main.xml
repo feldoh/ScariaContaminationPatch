@@ -3,8 +3,6 @@
 
   <!-- Main menu -->
   <BackToGame>Resume struggle</BackToGame>
-  <Save>Record adversity</Save>
-  <LoadGame>Reminisce</LoadGame>
   <QuitToMainMenu>Flee to menu</QuitToMainMenu>
   <SaveAndQuitToMainMenu>Record tale and flee to menu</SaveAndQuitToMainMenu>
   <QuitToOS>Escape to OS</QuitToOS>

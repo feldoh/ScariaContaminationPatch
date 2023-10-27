@@ -14,5 +14,7 @@
         <li IfModActive="CatLover366.MonkeTime">Compatibility/CatLover366.MonkeTime</li>
         <li IfModActive="Mlie.WaSkeleton,zombiefied.zombiefied,brrainz.zombieland">Compatibility/ZombieRenames</li>
         <li IfModNotActive="Mlie.WaSkeleton,zombiefied.zombiefied,brrainz.zombieland" IfModActive="vanillaracesexpanded.fungoid">Compatibility/SporeRenames</li>
+        <li IfModActive="Ludeon.RimWorld.Ideology">Compatibility/Ideology</li>
+        <li IfModActive="vanillaracesexpanded.fungoid">Compatibility/vanillaracesexpanded.fungoid</li>
     </v1.4>
 </loadFolders>

@@ -15,9 +15,6 @@
   <SpawningColonists>Spawning colonists</SpawningColonists>
 
   <!-- Save/load -->
-  <SaveGameButton>Chronicle your survival</SaveGameButton>
-  <LoadGameButton>Recall struggle</LoadGameButton>
-  <DeleteThisSavegame>Delete this chronicle of survival.</DeleteThisSavegame>
   <LoadingLongEvent>Resuming the struggle</LoadingLongEvent>
   <SavingLongEvent>Chronicling survival</SavingLongEvent>
 
