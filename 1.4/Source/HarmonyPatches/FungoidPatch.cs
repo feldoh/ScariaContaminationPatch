@@ -14,7 +14,11 @@ public class FungoidPatch
         [HarmonyPrefix]
         public static bool Prefix(XenotypeDef ___xenotype, Pawn ___pawn, XenotypeDef xenotype)
         {
-            if (xenotype.defName != "Baseliner" || ___xenotype.defName != "VRE_Fungoid") return true;
+            if (!ModLister.CheckBiotech("Xenotypes")
+                || Current.ProgramState != ProgramState.Playing
+                || xenotype?.defName != "Baseliner"
+                || ___xenotype?.defName != "VRE_Fungoid"
+                || PawnGenerator.IsBeingGenerated(___pawn)) return true;
             // If no Scaria to cure give points anyway
             if (___pawn.health?.hediffSet?.GetFirstHediffOfDef(HediffDefOf.Scaria) is not { } hediff)
             {
