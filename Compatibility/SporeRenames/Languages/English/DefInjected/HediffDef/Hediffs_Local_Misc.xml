@@ -3,5 +3,5 @@
 <LanguageData>
   <Scaria.label>Aggression Spores</Scaria.label>
   <Scaria.description>A disease which causes affected creatures to enter berserk rages seeking flesh. A creature infected with these spores can be cured through a special medical operation, but it must be downed first. If not treated, the spores gradually consume the brain and kill the host about five days after infection. The disease poisons the flesh and rots the skin, so creatures killed after infection are often found to be rotten, their flesh practically shredded by the fungal network. No sane creature would butcher them for meat or leather.</Scaria.description>
-  <descriptionShort>A disease which causes berserk rages. If not treated, the spores will spread, consuming the brain and killing the host about five days after infection.</descriptionShort>
+  <Scaria.descriptionShort>A disease which causes berserk rages. If not treated, the spores will spread, consuming the brain and killing the host about five days after infection.</Scaria.descriptionShort>
 </LanguageData>
