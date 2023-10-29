@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+  <Taggerung_SCP_ScariaImmunity.label>genetic zombie immunity</Taggerung_SCP_ScariaImmunity.label>
+  <Taggerung_SCP_ScariaImmunity.description>Carriers of this gene are immune to the zombie virus.</Taggerung_SCP_ScariaImmunity.description>
+
+  <Taggerung_SCP_ScariaCarrier.label>genetic zombie</Taggerung_SCP_ScariaCarrier.label>
+  <Taggerung_SCP_ScariaCarrier.description>Carriers of this gene are infected by the zombie virus at the genetic level and can never be cured, curing them will only
+    temporarily remove the infection.\n\nWhile the virus can never be cured, it may be possible suppress it.</Taggerung_SCP_ScariaCarrier.description>
+</LanguageData>

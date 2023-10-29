@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+  <GeneDef>
+    <defName>Taggerung_SCP_ScariaImmunity</defName>
+    <label>genetic infected immunity</label>
+    <description>Carriers of this gene are immune to the attacks of the infected.</description>
+    <iconPath>UI/Icons/Genes/Gene_Coagulate</iconPath>
+    <exclusionTags>
+      <li>Taggerung_SCP_ScariaInfection</li>
+    </exclusionTags>
+    <displayCategory>Healing</displayCategory>
+    <displayOrderInCategory>110</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <makeImmuneTo>
+      <li>Scaria</li>
+    </makeImmuneTo>
+  </GeneDef>
+
+  <GeneDef>
+    <defName>Taggerung_SCP_ScariaCarrier</defName>
+    <label>genetic infected</label>
+    <geneClass>ScariaContaminationPatch.GeneticInfectedGene</geneClass>
+    <description>Carriers of this gene are infected at the genetic level and can never be cured, curing them will only temporarily remove the infection.\n\nWhile the infected
+      can never be cured, it may be possible suppress the infection.</description>
+    <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
+    <exclusionTags>
+      <li>Taggerung_SCP_ScariaInfection</li>
+    </exclusionTags>
+    <displayCategory>Healing</displayCategory>
+    <displayOrderInCategory>110</displayOrderInCategory>
+    <biostatCpx>0</biostatCpx>
+    <biostatMet>1</biostatMet>
+  </GeneDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>Taggerung_SCP_SuppressScariaCarrier</defName>
+    <label>suppress genetic infection</label>
+    <description>This special medical operation cures an infected and suppresses its ability to naturally reemerge.\n\nThis unfortunately does not prevent them from being reinfected from other sources, only from their own genetics.</description>
+    <workerClass>ScariaContaminationPatch.Recipe_SuppressScaria</workerClass>
+    <jobString>suppressing infected.</jobString>
+    <workAmount>8500</workAmount>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <isViolation>false</isViolation>
+    <targetsBodyPart>false</targetsBodyPart>
+    <removesHediff>Scaria</removesHediff>
+    <successfullyRemovedHediffMessage>{0} has successfully suppressed infected, {1}.</successfullyRemovedHediffMessage>
+    <skillRequirements>
+      <Medicine>12</Medicine>
+    </skillRequirements>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>7</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+</Defs>

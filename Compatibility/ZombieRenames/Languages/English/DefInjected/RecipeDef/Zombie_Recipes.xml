@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+  <CureScaria.label>cure the zombie virus</CureScaria.label>
+  <CureScaria.description>This special medical operation cures the zombie virus, regenerating the rotting flesh and stabilising the breakdown.</CureScaria.description>
+  <CureScaria.jobString>Curing the zombie virus.</CureScaria.jobString>
+  <CureScaria.successfullyRemovedHediffMessage>{1} no longer has the zombie virus thanks to {0}.</CureScaria.successfullyRemovedHediffMessage>
+
+  <Taggerung_SCP_SuppressScariaCarrier.label>permanently neutralize genetic zombie virus</Taggerung_SCP_SuppressScariaCarrier.label>
+  <Taggerung_SCP_SuppressScariaCarrier.description>This special medical operation neutralizes the zombie virus at the genetic level, regenerating the rotting flesh and stabilising the breakdown.\n\nThis more advanced surgery suppresses the genetic infection preventing natural reinfection. This can only prevent natural genetic reinfection, not infection from other sources such as cuts and bites.</Taggerung_SCP_SuppressScariaCarrier.description>
+  <Taggerung_SCP_SuppressScariaCarrier.jobString>Neutralizing genetic zombie virus</Taggerung_SCP_SuppressScariaCarrier.jobString>
+  <Taggerung_SCP_SuppressScariaCarrier.successfullyRemovedHediffMessage>{1} is no longer has the zombie virus thanks to {0}.</Taggerung_SCP_SuppressScariaCarrier.successfullyRemovedHediffMessage>
+</LanguageData>

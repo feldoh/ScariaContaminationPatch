@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<LanguageData>
-  <CureScaria.label>cure the zombie virus</CureScaria.label>
-  <CureScaria.description>This special medical operation cures the zombie virus, regenerating the rotting flesh and stabilising the breakdown.</CureScaria.description>
-  <CureScaria.jobString>Curing the zombie virus.</CureScaria.jobString>
-  <CureScaria.successfullyRemovedHediffMessage>{1} no longer has the zombie virus thanks to {0}.</CureScaria.successfullyRemovedHediffMessage>
-</LanguageData>

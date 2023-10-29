@@ -16,5 +16,6 @@
         <li IfModNotActive="Mlie.WaSkeleton,zombiefied.zombiefied,brrainz.zombieland" IfModActive="vanillaracesexpanded.fungoid">Compatibility/SporeRenames</li>
         <li IfModActive="Ludeon.RimWorld.Ideology">Compatibility/Ideology</li>
         <li IfModActive="vanillaracesexpanded.fungoid">Compatibility/vanillaracesexpanded.fungoid</li>
+        <li IfModActive="Ludeon.RimWorld.Biotech">Compatibility/Biotech</li>
     </v1.4>
 </loadFolders>

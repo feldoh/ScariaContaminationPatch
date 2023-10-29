@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+  <CureScaria.label>neutralize aggression spores</CureScaria.label>
+  <CureScaria.description>This special medical operation neutralizes aggression spores, regenerating, flushing them from the system and restoring normal brain function.</CureScaria.description>
+  <CureScaria.jobString>Neutralizing aggression spores</CureScaria.jobString>
+  <CureScaria.successfullyRemovedHediffMessage>{1} is no longer consumed by the spores thanks to {0}.</CureScaria.successfullyRemovedHediffMessage>
+
+  <Taggerung_SCP_SuppressScariaCarrier.label>permanently neutralize genetic aggression spores</Taggerung_SCP_SuppressScariaCarrier.label>
+  <Taggerung_SCP_SuppressScariaCarrier.description>This special medical operation neutralizes genetic aggression spores, regenerating, flushing them from the system and restoring normal brain function.\n\nThis more advanced surgery suppresses the genetic infection preventing natural reinfection. This can only prevent natural genetic reinfection, not infection from other sources such as cuts and bites.</Taggerung_SCP_SuppressScariaCarrier.description>
+  <Taggerung_SCP_SuppressScariaCarrier.jobString>Neutralizing genetic aggression spores</Taggerung_SCP_SuppressScariaCarrier.jobString>
+  <Taggerung_SCP_SuppressScariaCarrier.successfullyRemovedHediffMessage>{1} is no longer consumed by the spores thanks to {0}.</Taggerung_SCP_SuppressScariaCarrier.successfullyRemovedHediffMessage>
+</LanguageData>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/XenotypeDef[defName="VRE_Fungoid"]/genes</xpath>
+    <value>
+      <li>Taggerung_SCP_ScariaCarrier</li>
+    </value>
+  </Operation>
+</Patch>

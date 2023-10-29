@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Humanoid Alien Races</li>
+    </mods>
+    <match Class="PatchOperationConditional">
+      <xpath>Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]</xpath>
+      <match Class="PatchOperationSequence">
+        <operations>
+          <li Class="PatchOperationConditional">
+            <xpath>Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]/recipes</xpath>
+            <nomatch Class="PatchOperationAdd">
+              <xpath>Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]</xpath>
+              <value>
+                <recipes />
+              </value>
+            </nomatch>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]/recipes</xpath>
+            <value>
+              <li>Taggerung_SCP_SuppressScariaCarrier</li>
+            </value>
+          </li>
+        </operations>
+      </match>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Human"]/recipes</xpath>
+    <value>
+      <li>Taggerung_SCP_SuppressScariaCarrier</li>
+    </value>
+  </Operation>
+</Patch>

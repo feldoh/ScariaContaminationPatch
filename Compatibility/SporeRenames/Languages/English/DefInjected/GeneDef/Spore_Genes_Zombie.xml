@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+  <Taggerung_SCP_ScariaImmunity.label>genetic aggression spore immunity</Taggerung_SCP_ScariaImmunity.label>
+  <Taggerung_SCP_ScariaImmunity.description>Carriers of this gene are immune to aggression spores.</Taggerung_SCP_ScariaImmunity.description>
+
+  <Taggerung_SCP_ScariaCarrier.label>aggression spore carrier</Taggerung_SCP_ScariaCarrier.label>
+  <Taggerung_SCP_ScariaCarrier.description>Carriers of this gene automatically generate aggression spores at the genetic level and can never be cured, curing them will only temporarily remove the spores.\n\nWhile the gland producing the spores cannot be removed, it may be possible suppress it.</Taggerung_SCP_ScariaCarrier.description>
+</LanguageData>
