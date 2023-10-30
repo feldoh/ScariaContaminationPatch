@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld;
 using ScariaContaminationPatch.Comps;
@@ -11,13 +12,14 @@ public class FungoidPatch
     [HarmonyPatch(typeof(Pawn_GeneTracker), nameof(Pawn_GeneTracker.SetXenotype))]
     public class PatchSetXenotype
     {
+        public static HashSet<string> _fungalZombies = new(new List<string> {"VRE_Fungoid", "AG_Mycormorph"});
         [HarmonyPrefix]
         public static bool Prefix(XenotypeDef ___xenotype, Pawn ___pawn, XenotypeDef xenotype)
         {
             if (!ModLister.CheckBiotech("Xenotypes")
                 || Current.ProgramState != ProgramState.Playing
                 || xenotype?.defName != "Baseliner"
-                || ___xenotype?.defName != "VRE_Fungoid"
+                || !_fungalZombies.Contains(___xenotype?.defName)
                 || PawnGenerator.IsBeingGenerated(___pawn)) return true;
             // If no Scaria to cure give points anyway
             if (___pawn.health?.hediffSet?.GetFirstHediffOfDef(HediffDefOf.Scaria) is not { } hediff)
