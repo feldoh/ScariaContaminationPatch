@@ -57,10 +57,14 @@
         <Compile Include="Comps\CompProperties_UseEffect_RemoveHediff.cs" />
         <Compile Include="Comps\CompUseEffect_RemoveHediff.cs" />
         <Compile Include="Comps\HediffCompProperties_DevelopmentPointsOnRemoved.cs" />
+        <Compile Include="Comps\HediffCompProperties_GeneGiver.cs" />
         <Compile Include="Comps\HediffComp_DevelopmentPointsOnRemoved.cs" />
+        <Compile Include="Comps\HediffComp_GeneGiver.cs" />
         <Compile Include="Comps\PreceptComp_CuringDevelopmentPoints.cs" />
         <Compile Include="GeneticInfectedGene.cs" />
+        <Compile Include="HarmonyPatches\AcidSmogPatch.cs" />
         <Compile Include="HarmonyPatches\FungoidPatch.cs" />
+        <Compile Include="HediffGiver_RandomGene.cs" />
         <Compile Include="Recipe_SuppressScaria.cs" />
         <Compile Include="ScariaContaminationPatch.cs" />
         <Compile Include="HarmonyPatches\ScariaContaminationPatch.cs" />

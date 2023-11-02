@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+  <HediffDef ParentName="InfectionBase">
+    <defName>Taggerung_SCP_GeneMutation</defName>
+    <label>genetic mutation</label>
+    <labelNoun>a mutation</labelNoun>
+    <description>Infection which is gradually manipulating the genetics of the host. Without treatment, the mutation will alter the host's genetic makeup permanently.</description>
+    <makesSickThought>true</makesSickThought>
+    <tendable>true</tendable>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <baseTendDurationHours>12</baseTendDurationHours>
+        <severityPerDayTended>-0.53</severityPerDayTended>
+      </li>
+      <li Class="HediffCompProperties_Immunizable">
+        <severityPerDayNotImmune>0.84</severityPerDayNotImmune>
+        <immunityPerDaySick>0.6441</immunityPerDaySick>
+        <severityPerDayImmune>-0.70</severityPerDayImmune>
+        <immunityPerDayNotSick>-0.40</immunityPerDayNotSick>
+      </li>
+      <li Class="HediffCompProperties_Discoverable">
+        <sendLetterWhenDiscovered>true</sendLetterWhenDiscovered>
+      </li>
+      <li Class="ScariaContaminationPatch.Comps.HediffCompProperties_GeneGiver">
+        <possibleGenes>
+          <li>Taggerung_SCP_ScariaImmunity</li>
+
+          <li MayRequire="Ludeon.RimWorld.Biotech">Deathless</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Immunity_SuperStrong</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">MinTemp_LargeDecrease</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">MaxTemp_LargeIncrease</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Sterile</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">AptitudeTerrible_Intellectual</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Aggression_HyperAggressive</li>
+
+          <!-- Most of the Xenogenes from VRE Fungoids -->
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_MindCoalescence</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_GeneInfector</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_FungalFlesh</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_ExtremeSkillLoss</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_SkillDegradation</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_NoStudy</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_Repulsive</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_FungalArmor</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_FungalRegeneration</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_RotBlood</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_Telepathy</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_FungalCrest</li>
+          <li MayRequire="vanillaracesexpanded.fungoid">VRE_HairMushroom</li>
+
+          <!-- Most of the Xenogenes from AG Mycomorph -->
+          <li MayRequire="sarg.alphagenes">AG_LungRotImmunity</li>
+          <li MayRequire="sarg.alphagenes">AG_DangerousRaidPresence</li>
+          <li MayRequire="sarg.alphagenes">AG_PukeBile</li>
+          <li MayRequire="sarg.alphagenes">AG_RotStinkProducer</li>
+          <li MayRequire="sarg.alphagenes">AG_Skin_Rot</li>
+        </possibleGenes>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>minor</label>
+        <painOffset>0.05</painOffset>
+      </li>
+      <li>
+        <minSeverity>0.33</minSeverity>
+        <label>major</label>
+        <painOffset>0.08</painOffset>
+      </li>
+      <li>
+        <minSeverity>0.78</minSeverity>
+        <label>extreme</label>
+        <painOffset>0.12</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.87</minSeverity>
+        <label>extreme</label>
+        <painOffset>0.85</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>Taggerung_SCP_ViralBuildup</defName>
+    <label>viral buildup</label>
+    <description>The infection, it's in the bloodstream. This can come from various sources, including environmental toxins, infected bites, or poisoned weapons.\nAt high doses, the inflicted can become permanently infected and eventually die.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 1.0, 0.7)</defaultLabelColor>
+    <makesSickThought>true</makesSickThought>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <taleOnVisible>ToxicityRevealed</taleOnVisible>
+    <comps>
+      <li Class="HediffCompProperties_Immunizable">
+        <compClass>HediffComp_ImmunizableToxic</compClass>
+        <severityPerDayNotImmune>-0.08</severityPerDayNotImmune>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>initial</label>
+        <becomeVisible>false</becomeVisible>
+      </li>
+      <li>
+        <label>initial</label>
+        <minSeverity>0.04</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>minor</label>
+        <minSeverity>0.2</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.10</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>moderate</label>
+        <minSeverity>0.40</minSeverity>
+        <vomitMtbDays>5</vomitMtbDays>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.15</offset>
+          </li>
+        </capMods>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>Scaria</hediff>
+            <mtbDays>438</mtbDays>
+          </li>
+        </hediffGivers>
+      </li>
+      <li>
+        <label>serious</label>
+        <minSeverity>0.60</minSeverity>
+        <vomitMtbDays>1</vomitMtbDays>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.25</offset>
+          </li>
+        </capMods>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>Scaria</hediff>
+            <mtbDays>111</mtbDays>
+          </li>
+        </hediffGivers>
+      </li>
+      <li>
+        <label>extreme</label>
+        <minSeverity>0.80</minSeverity>
+        <vomitMtbDays>0.5</vomitMtbDays>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.10</setMax>
+          </li>
+        </capMods>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>Scaria</hediff>
+            <mtbDays>13</mtbDays>
+          </li>
+          <li Class="HediffGiver_Random" MayRequire="Ludeon.RimWorld.Biotech">
+            <hediff>Taggerung_SCP_GeneMutation</hediff>
+            <mtbDays>10</mtbDays>
+          </li>
+        </hediffGivers>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>
