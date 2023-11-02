@@ -7,4 +7,16 @@
       <li>Taggerung_SCP_ScariaCarrier</li>
     </value>
   </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/HediffDef[defName="Taggerung_SCP_GeneMutation"]/comps/li/possibleGenes</xpath>
+    <value>
+      <li MayRequire="sarg.alphagenes">AG_FungalSkin</li>
+      <li MayRequire="sarg.alphagenes">AG_FungalClumps</li>
+      <li MayRequire="sarg.alphagenes">AG_FungalSprout</li>
+      <li MayRequire="sarg.alphagenes">AG_FungalTentacles</li>
+      <li MayRequire="sarg.alphagenes">AlphaGenes_FungalStrength</li>
+      <li MayRequire="sarg.alphagenes">AlphaGenes_FungalSpeed</li>
+    </value>
+  </Operation>
 </Patch>

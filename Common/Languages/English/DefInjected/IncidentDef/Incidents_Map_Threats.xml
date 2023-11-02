@@ -4,4 +4,6 @@
   <ManhunterPack.label>infected animals pack</ManhunterPack.label>
   <ManhunterPack.letterText>{0} has been ambushed by manhunting infected {1}!</ManhunterPack.letterText>
   <ManhunterPack.letterLabel>Caravan ambushed (infected animals)</ManhunterPack.letterLabel>
+
+  <ToxicFallout.letterLabel>Spore Cloud</ToxicFallout.letterLabel>
 </LanguageData>

@@ -2,4 +2,7 @@
 
 <LanguageData>
   <ScariaContaminationPatch_Headshot>BOOM! Headshot</ScariaContaminationPatch_Headshot>
+  <ScariaContaminationPatch_GeneGiverHediff>An infection which seems to be altering the very genetics of its host</ScariaContaminationPatch_GeneGiverHediff>
+  <ScariaContaminationPatch_LetterLabelGeneGiver>Mutation</ScariaContaminationPatch_LetterLabelGeneGiver>
+  <ScariaContaminationPatch_LetterTextGeneGiver>{PAWN} has mutated, gaining {1}.</ScariaContaminationPatch_LetterTextGeneGiver>
 </LanguageData>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+  <NoxiousHaze.label>infectious haze</NoxiousHaze.label>
+  <NoxiousHaze.description>Infectious haze is caused by micro doses of RNA attaching to pollution particles from nearby world tiles. It slows plant growth, deteriorates exposed items, and reduces mood as well as potentially infecting your colonists.\n\nThe current world tile has a nearby pollution score of {NEARBYPOLLUTION}, calculated by adding up pollution of nearby world tiles. This means that, on average, infectious haze will occur every {MTB} days.</NoxiousHaze.description>
+  <NoxiousHaze.startMessage>Infectious haze has begun due to pollution in this region of the world.</NoxiousHaze.startMessage>
+  <NoxiousHaze.endMessage>The infectious haze is lifting.</NoxiousHaze.endMessage>
+
+  <ToxicFallout.label>infectious cloud</ToxicFallout.label>
+  <ToxicFallout.description>A plume of infectious dust from some distant source is slowly settling over this entire region. Any living thing not under a roof will be slowly infected, and items left outside will corrode.</ToxicFallout.description>
+  <ToxicFallout.descriptionFuture>a cloud of infectious dust will blanket the area around [map_definite] for [gameConditionDuration_duration], killing outdoor plant and animal life and infecting those exposed for too long.</ToxicFallout.descriptionFuture>
+  <ToxicFallout.endMessage>The worst of the infectious dust has settled.</ToxicFallout.endMessage>
+  <ToxicFallout.letterText>A distant chemical fire has aerosolized fragments of infectious RNA creating a plume of poison over this entire region.\n\nAny person or creature not under a roof will be slowly sickened by the infectious dust settling out of the atmosphere.\n\nIt will last for anywhere between a few days to over a quadrum.</ToxicFallout.letterText>
+
+</LanguageData>
