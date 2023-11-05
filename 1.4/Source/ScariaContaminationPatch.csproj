@@ -69,6 +69,7 @@
         <Compile Include="ScariaContaminationPatch.cs" />
         <Compile Include="HarmonyPatches\ScariaContaminationPatch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="ScariaContaminationPatchModInit.cs" />
         <Compile Include="ScariaContaminationPatchSettings.cs" />
         <Compile Include="ScariaZombieDefOf.cs" />
     </ItemGroup>

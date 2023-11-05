@@ -32,6 +32,9 @@
     <displayOrderInCategory>110</displayOrderInCategory>
     <biostatCpx>0</biostatCpx>
     <biostatMet>1</biostatMet>
+    <statFactors>
+      <RawNutritionFactor>3</RawNutritionFactor>
+    </statFactors>
   </GeneDef>
 
   <RecipeDef ParentName="SurgeryFlesh">

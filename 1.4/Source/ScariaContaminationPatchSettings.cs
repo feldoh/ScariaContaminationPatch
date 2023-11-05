@@ -1,28 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace ScariaContaminationPatch
 {
-    public class ScariaContaminationPatchSettings: ModSettings
+    public class ScariaContaminationPatchSettings : ModSettings
     {
         private const float RowHeight = 22f;
-        
+
         private readonly Listing_Standard _options = new();
 
         public bool AllowInstantKillOfNonZombies;
         public bool AllowInstantKillOfPlayerFaction;
         public bool AllowInstantKillOfGuests;
+        public bool AllowAggressiveFoodHunt;
+        public bool AllowInfectedHunting;
         public float InstantKillChance;
+        public float InfectedHungerFactor;
+        public float BerserkRageMtb;
         public int CriticalHeadshotCooldown;
         private string _criticalHeadshotCooldownEditBuffer;
-        
+
+        private List<float> _hungerfactorCache;
+
+        public static float BaseMtbDaysToCauseBerserk => HediffDefOf.Scaria?.CompProps<HediffCompProperties_CauseMentalState>().mtbDaysToCauseMentalState ?? 0f;
+
         public void DoWindowContents(Rect wrect)
         {
             _options.Begin(wrect);
-            
+
             _options.CheckboxLabeled("ScariaContaminationPatch_InstantKillAllowNonZombies".Translate(), ref AllowInstantKillOfNonZombies);
             _options.CheckboxLabeled("ScariaContaminationPatch_InstantKillAllowPlayerPawns".Translate(), ref AllowInstantKillOfPlayerFaction);
             _options.CheckboxLabeled("ScariaContaminationPatch_InstantKillAllowGuests".Translate(), ref AllowInstantKillOfGuests);
+            _options.CheckboxLabeled("ScariaContaminationPatch_AllowAggressiveFoodHunt".Translate(), ref AllowAggressiveFoodHunt);
+            _options.CheckboxLabeled("ScariaContaminationPatch_AllowHuntingInfected".Translate(), ref AllowInfectedHunting);
             _options.GapLine();
             _options.Gap();
             _options.Label("ScariaContaminationPatch_CriticalHeadshotCooldown".Translate());
@@ -30,19 +44,60 @@ namespace ScariaContaminationPatch
             _options.GapLine();
             _options.Gap();
             Rect instantKillChanceRect = _options.GetRect(RowHeight);
-            string instantKillChanceLabel = "ScariaContaminationPatch_InstantKillChance".Translate(InstantKillChance * 100);
+            string instantKillChanceLabel = "ScariaContaminationPatch_InstantKillChance".Translate(InstantKillChance.ToStringPercent());
             Widgets.HorizontalSlider(instantKillChanceRect, ref InstantKillChance, new FloatRange(0f, 1f), instantKillChanceLabel);
+            _options.Gap();
+            Rect infectedHungerFactorRect = _options.GetRect(RowHeight);
+            string infectedHungerFactorLabel = "ScariaContaminationPatch_InfectedHungerFactor".Translate(InfectedHungerFactor.ToStringDecimalIfSmall());
+            float currentHungerFactor = InfectedHungerFactor;
+            Widgets.HorizontalSlider(infectedHungerFactorRect, ref InfectedHungerFactor, new FloatRange(0f, 10f), infectedHungerFactorLabel);
+            if (Math.Abs(InfectedHungerFactor - currentHungerFactor) > 0.005f) ApplyInfectedHungerFactor();
+            _options.Gap();
+            Rect berserkIntervalRect = _options.GetRect(RowHeight);
+            string berserkIntervalLabel = "ScariaContaminationPatch_BerserkInterval".Translate(BerserkRageMtb.ToStringDecimalIfSmall());
+            float currentBerserkRageMtb = BerserkRageMtb;
+            Widgets.HorizontalSlider(berserkIntervalRect, ref BerserkRageMtb, new FloatRange(0f, 10f), berserkIntervalLabel);
+            if (Math.Abs(currentBerserkRageMtb - BerserkRageMtb) > 0.005f) ApplyBerserkRageMtb();
             _options.Gap();
             _options.End();
         }
 
+        private void ApplyBerserkRageMtb()
+        {
+            if (BerserkRageMtb <= 0f) BerserkRageMtb = BaseMtbDaysToCauseBerserk;
+            if (BerserkRageMtb > 0) HediffDefOf.Scaria.CompProps<HediffCompProperties_CauseMentalState>().mtbDaysToCauseMentalState = BerserkRageMtb;
+        }
+
+        public void ApplyInfectedHungerFactor()
+        {
+            if (_hungerfactorCache == null || _hungerfactorCache.Count == 0)
+            {
+                _hungerfactorCache = HediffDefOf.Scaria.stages.Select(s => s.hungerRateFactor).ToList();
+            }
+
+            for (int i = 0; i < HediffDefOf.Scaria.stages.Count; i++)
+            {
+                HediffDefOf.Scaria.stages[i].hungerRateFactor = _hungerfactorCache[i] * InfectedHungerFactor;
+            }
+        }
+
         public override void ExposeData()
         {
+            Scribe_Values.Look(ref BerserkRageMtb, "BerserkRageMtb", 0f);
             Scribe_Values.Look(ref InstantKillChance, "InstantKillChance", 1.0f);
+            Scribe_Values.Look(ref InfectedHungerFactor, "InstantKillChance", 1.0f);
             Scribe_Values.Look(ref AllowInstantKillOfNonZombies, "AllowInstantKillOfNonZombies", true);
             Scribe_Values.Look(ref AllowInstantKillOfPlayerFaction, "AllowInstantKillOfPlayerFaction", true);
             Scribe_Values.Look(ref AllowInstantKillOfGuests, "AllowInstantKillOfGuests", true);
+            Scribe_Values.Look(ref AllowAggressiveFoodHunt, "AllowAggressiveFoodHunt", false);
+            Scribe_Values.Look(ref AllowInfectedHunting, "AllowInfectedHunting", false);
             Scribe_Values.Look(ref CriticalHeadshotCooldown, "CriticalHeadshotCooldown");
+        }
+
+        public void ApplySettings()
+        {
+            ApplyInfectedHungerFactor();
+            ApplyBerserkRageMtb();
         }
     }
 }

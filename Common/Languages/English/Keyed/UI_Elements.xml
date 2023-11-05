@@ -2,8 +2,12 @@
 
 <LanguageData>
   <ScariaContaminationPatch_InstantKillChance>Instant Kill On Headshot Chance: {0}</ScariaContaminationPatch_InstantKillChance>
+  <ScariaContaminationPatch_InfectedHungerFactor>Hunger Rate multiplier for infected: x{0}</ScariaContaminationPatch_InfectedHungerFactor>
+  <ScariaContaminationPatch_BerserkInterval>Days between infected going berserk: {0} Days</ScariaContaminationPatch_BerserkInterval>
   <ScariaContaminationPatch_InstantKillAllowNonZombies>Allow Instant Kill Of NonInfected</ScariaContaminationPatch_InstantKillAllowNonZombies>
   <ScariaContaminationPatch_InstantKillAllowPlayerPawns>Allow Instant Kill Of Player Faction Pawns</ScariaContaminationPatch_InstantKillAllowPlayerPawns>
   <ScariaContaminationPatch_InstantKillAllowGuests>Allow Instant Kill Of Guests</ScariaContaminationPatch_InstantKillAllowGuests>
   <ScariaContaminationPatch_CriticalHeadshotCooldown>Minimum ticks between critical headshots</ScariaContaminationPatch_CriticalHeadshotCooldown>
+  <ScariaContaminationPatch_AllowAggressiveFoodHunt>Allow starving infected to attack walls to get to food</ScariaContaminationPatch_AllowAggressiveFoodHunt>
+  <ScariaContaminationPatch_AllowHuntingInfected>Allow starving infected to hunt each other</ScariaContaminationPatch_AllowHuntingInfected>
 </LanguageData>

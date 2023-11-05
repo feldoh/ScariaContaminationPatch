@@ -17,13 +17,33 @@
     </nomatch>
   </Operation>
 
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="Scaria"]/stages</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="Scaria"]</xpath>
+      <value>
+        <stages />
+      </value>
+    </nomatch>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="Scaria"]/stages/li</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="Scaria"]/stages</xpath>
+      <value>
+        <li />
+      </value>
+    </nomatch>
+  </Operation>
+
   <!-- Minor -->
   <Operation Class="PatchOperationConditional">
     <xpath>Defs/HediffDef[defName="ToxicBuildup"]/stages/li[label="minor"]/hediffGivers</xpath>
     <nomatch Class="PatchOperationAdd">
       <xpath>Defs/HediffDef[defName="ToxicBuildup"]/stages/li[label="minor"]</xpath>
       <value>
-        <hediffGivers/>
+        <hediffGivers />
       </value>
     </nomatch>
   </Operation>
@@ -77,6 +97,5 @@
       </li>
     </value>
   </Operation>
-
 
 </Patch>
