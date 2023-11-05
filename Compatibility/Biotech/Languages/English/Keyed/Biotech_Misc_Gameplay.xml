@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+
+  <NearbyPollutionTip>The sum of pollution levels of all tiles within a {0} tile radius. As the distance from this tile increases, the pollution contribution decreases:\n\n{1}\n\nThe higher the nearby pollution the greater the chance of an infectious haze occurring.</NearbyPollutionTip>
+  <NoxiousHazeInterval>This tile will have an infectious haze every {0} days on average.</NoxiousHazeInterval>
+  <NoxiousHazeNeverOccurring>This tile will never have an infectious haze.</NoxiousHazeNeverOccurring>
+
+</LanguageData>

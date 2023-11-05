@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+
+  <!-- Pollution -->
+  <ConfirmSettleNearPollution>This tile is near polluted tiles, so there will be a haze of infected particulates here roughly every {0} days. the haze slows plant growth, deteriorates exposed items, and makes people unhappy. It also has a chance to infect anyone out in it.</ConfirmSettleNearPollution>
+
+</LanguageData>
