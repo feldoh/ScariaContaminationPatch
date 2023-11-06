@@ -85,7 +85,7 @@ namespace ScariaContaminationPatch
         {
             Scribe_Values.Look(ref BerserkRageMtb, "BerserkRageMtb", 0f);
             Scribe_Values.Look(ref InstantKillChance, "InstantKillChance", 1.0f);
-            Scribe_Values.Look(ref InfectedHungerFactor, "InstantKillChance", 1.0f);
+            Scribe_Values.Look(ref InfectedHungerFactor, "InfectedHungerFactor", 1.0f);
             Scribe_Values.Look(ref AllowInstantKillOfNonZombies, "AllowInstantKillOfNonZombies", true);
             Scribe_Values.Look(ref AllowInstantKillOfPlayerFaction, "AllowInstantKillOfPlayerFaction", true);
             Scribe_Values.Look(ref AllowInstantKillOfGuests, "AllowInstantKillOfGuests", true);
