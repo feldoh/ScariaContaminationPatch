@@ -5,6 +5,7 @@
     <xpath>Defs/XenotypeDef[defName="VRE_Fungoid" or defName="AG_Mycormorph"]/genes</xpath>
     <value>
       <li>Taggerung_SCP_ScariaCarrier</li>
+      <li>ToxResist_Total</li>
     </value>
   </Operation>
 
