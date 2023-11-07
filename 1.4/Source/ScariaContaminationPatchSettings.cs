@@ -13,11 +13,13 @@ namespace ScariaContaminationPatch
 
         private readonly Listing_Standard _options = new();
 
+        public bool AllowInfectedNPCBerserk;
         public bool AllowInstantKillOfNonZombies;
         public bool AllowInstantKillOfPlayerFaction;
         public bool AllowInstantKillOfGuests;
         public bool AllowAggressiveFoodHunt;
         public bool AllowInfectedHunting;
+        public float DoorAttackChance;
         public float InstantKillChance;
         public float InfectedHungerFactor;
         public float BerserkRageMtb;
@@ -37,6 +39,7 @@ namespace ScariaContaminationPatch
             _options.CheckboxLabeled("ScariaContaminationPatch_InstantKillAllowGuests".Translate(), ref AllowInstantKillOfGuests);
             _options.CheckboxLabeled("ScariaContaminationPatch_AllowAggressiveFoodHunt".Translate(), ref AllowAggressiveFoodHunt);
             _options.CheckboxLabeled("ScariaContaminationPatch_AllowHuntingInfected".Translate(), ref AllowInfectedHunting);
+            _options.CheckboxLabeled("ScariaContaminationPatch_AllowInfectedNPCBerserk".Translate(), ref AllowInfectedNPCBerserk);
             _options.GapLine();
             _options.Gap();
             _options.Label("ScariaContaminationPatch_CriticalHeadshotCooldown".Translate());
@@ -46,6 +49,10 @@ namespace ScariaContaminationPatch
             Rect instantKillChanceRect = _options.GetRect(RowHeight);
             string instantKillChanceLabel = "ScariaContaminationPatch_InstantKillChance".Translate(InstantKillChance.ToStringPercent());
             Widgets.HorizontalSlider(instantKillChanceRect, ref InstantKillChance, new FloatRange(0f, 1f), instantKillChanceLabel);
+            _options.Gap();
+            Rect doorAttackChanceRect = _options.GetRect(RowHeight);
+            string doorAttackChanceLabel = "ScariaContaminationPatch_DoorAttackChance".Translate(DoorAttackChance.ToStringPercent());
+            Widgets.HorizontalSlider(doorAttackChanceRect, ref DoorAttackChance, new FloatRange(0f, 1f), doorAttackChanceLabel);
             _options.Gap();
             Rect infectedHungerFactorRect = _options.GetRect(RowHeight);
             string infectedHungerFactorLabel = "ScariaContaminationPatch_InfectedHungerFactor".Translate(InfectedHungerFactor.ToStringDecimalIfSmall());
@@ -85,7 +92,9 @@ namespace ScariaContaminationPatch
         {
             Scribe_Values.Look(ref BerserkRageMtb, "BerserkRageMtb", 0f);
             Scribe_Values.Look(ref InstantKillChance, "InstantKillChance", 1.0f);
+            Scribe_Values.Look(ref DoorAttackChance, "DoorAttackChance", 0.4f);
             Scribe_Values.Look(ref InfectedHungerFactor, "InfectedHungerFactor", 1.0f);
+            Scribe_Values.Look(ref AllowInfectedNPCBerserk, "AllowInfectedNPCBerserk", true);
             Scribe_Values.Look(ref AllowInstantKillOfNonZombies, "AllowInstantKillOfNonZombies", true);
             Scribe_Values.Look(ref AllowInstantKillOfPlayerFaction, "AllowInstantKillOfPlayerFaction", true);
             Scribe_Values.Look(ref AllowInstantKillOfGuests, "AllowInstantKillOfGuests", true);
