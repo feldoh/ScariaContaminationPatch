@@ -51,7 +51,7 @@ public class PatchJobGiver_AIFightEnemy
         // Only check if the target is otherwise valid and attacker is not player controlled or does not have scaria.
         // Berserk pawns wont attack people with scaria so we only need to see about cancelling if the attacker has it.
         if (pawn.IsColonistPlayerControlled ||
-            !(target is Pawn pawnTarget) ||
+            target is not Pawn pawnTarget ||
             pawnTarget.def.race.intelligence < Intelligence.ToolUser ||
             !(MentalStateDefOf.Berserk.Equals(pawnTarget.MentalStateDef) ||
               MentalStateDefOf.Manhunter.Equals(pawnTarget.MentalStateDef) ||
@@ -82,7 +82,8 @@ public class PatchJobGiver_MentalStateHandler
         bool causedByPsycast = false)
     {
         // Prevent scaria ridden non-player pawns going berserk
-        if (!MentalStateDefOf.Berserk.Equals(stateDef) ||
+        if (ScariaContaminationPatch.Settings.AllowInfectedNPCBerserk ||
+            !MentalStateDefOf.Berserk.Equals(stateDef) ||
             ___pawn.IsColonist ||
             ___pawn.def.race.intelligence < Intelligence.ToolUser ||
             !___pawn.health.hediffSet.HasHediff(HediffDefOf.Scaria)) return true;
@@ -132,8 +133,8 @@ public class PatchDamageWorker_AddInjury
         {
             MoteMaker.ThrowText(new Vector3(pawn.Position.x + 1f, pawn.Position.y, pawn.Position.z + 1f), pawn.Map,
                 "ScariaContaminationPatch_Headshot".Translate(), Color.red);
-            var hediffDefFromDamage = HealthUtility.GetHediffDefFromDamage(dinfo.Def, pawn, dinfo.HitPart);
-            var hediffMissingPart = (Hediff_MissingPart)HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn);
+            HediffDef hediffDefFromDamage = HealthUtility.GetHediffDefFromDamage(dinfo.Def, pawn, dinfo.HitPart);
+            Hediff_MissingPart hediffMissingPart = (Hediff_MissingPart)HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn);
             hediffMissingPart.lastInjury = hediffDefFromDamage;
             hediffMissingPart.Part = dinfo.HitPart;
             pawn.health.AddHediff(hediffMissingPart);
@@ -141,8 +142,8 @@ public class PatchDamageWorker_AddInjury
         else
         {
             // Leave them a single hit point on the head, may not work if the injury has been merged but that's just luck.
-            var damageTarget = pawn.health.hediffSet.GetPartHealth(dinfo.HitPart) - 1;
-            var hediff = result.hediffs.Find(h => h.Part?.Equals(dinfo.HitPart) == true);
+            float damageTarget = pawn.health.hediffSet.GetPartHealth(dinfo.HitPart) - 1;
+            Hediff hediff = result.hediffs.Find(h => h.Part?.Equals(dinfo.HitPart) == true);
             if (hediff == null) return;
             hediff.Severity += damageTarget;
             result.totalDamageDealt += damageTarget;
@@ -175,7 +176,10 @@ public static class JobGiver_GetFoodPatch
             || (__result?.def == JobDefOf.PredatorHunt
                 && __result?.targetA.Pawn is { } p
                 && !p.health.hediffSet.HasHediff(HediffDefOf.Scaria))
+            || (pawn.MentalState?.def == MentalStateDefOf.Manhunter && pawn.mindState.lastEngageTargetTick > Find.TickManager.TicksGame - 3000)
             || pawn.meleeVerbs.TryGetMeleeVerb((Thing)null) == null) return __result;
+
+        if (pawn.MentalState?.def == MentalStateDefOf.Manhunter) pawn.mindState.mentalStateHandler.Reset();
 
         Pawn prey = pawn.Map.mapPawns.AllPawnsSpawned
             .Where(mapPawn =>
@@ -185,11 +189,18 @@ public static class JobGiver_GetFoodPatch
             .FirstOrDefault();
         if (prey != null)
         {
-            Job huntJob = JobMaker.MakeJob(JobDefOf.PredatorHunt, prey);
-            huntJob.killIncappedTarget = true;
-            huntJob.canBashDoors = true;
-            huntJob.canBashFences = true;
-            return huntJob;
+            Log.Message(prey.LabelShort);
+            TaggedString reason = "LetterPredatorHuntingColonist".Translate(pawn.Named("PREDATOR"), prey.Named("PREY"));
+            pawn.mindState?
+                .mentalStateHandler?
+                .TryStartMentalState(MentalStateDefOf.Manhunter, reason);
+
+            if (prey.Spawned && prey.Faction == Faction.OfPlayer && prey.RaceProps.Humanlike)
+            {
+                pawn?.mindState?.Notify_PredatorHuntingPlayerNotification();
+            }
+
+            return __result;
         }
 
         prey = pawn.Map.mapPawns.AllPawnsSpawned
@@ -208,21 +219,26 @@ public static class JobGiver_GetFoodPatch
 
     public static Job MakeGotoUnstoppable(Pawn pawn, LocalTargetInfo target)
     {
-        using (PawnPath path = pawn.Map.pathFinder.FindPath(pawn.Position, target,
-                   TraverseParms.For(pawn, mode: TraverseMode.PassAllDestroyableThings)))
+        if (!target.IsValid) return null;
+        bool canReach = false;
+
+        // Maybe go for the doors, or maybe don't...
+        if (Rand.Chance(ScariaContaminationPatch.Settings.DoorAttackChance))
         {
-            IntVec3 cellBefore;
-            Thing blocker = path.FirstBlockingBuilding(out cellBefore, pawn);
-
-            if (blocker != null)
-            {
-                Job job = DigUtility.PassBlockerJob(pawn, blocker, cellBefore, true, true);
-
-                if (job != null)
-                    return job;
-            }
+            using PawnPath path = pawn.Map.pathFinder.FindPath(pawn.Position, target,
+                TraverseParms.For(pawn, mode: TraverseMode.PassDoors));
+            canReach = path.Found;
+            Thing blocker = path.FirstBlockingBuilding(out IntVec3 cellBefore, pawn);
+            if (blocker != null) return DigUtility.PassBlockerJob(pawn, blocker, cellBefore, true, true);
         }
 
+        if (!canReach)
+        {
+            using PawnPath path = pawn.Map.pathFinder.FindPath(pawn.Position, target,
+                TraverseParms.For(pawn, mode: TraverseMode.PassAllDestroyableThings));
+            Thing blocker = path.FirstBlockingBuilding(out IntVec3 cellBefore, pawn);
+            if (blocker != null) return DigUtility.PassBlockerJob(pawn, blocker, cellBefore, true, true);
+        }
 
         Job jobGoto = JobMaker.MakeJob(JobDefOf.Goto, target);
         jobGoto.expiryInterval = 10000;
