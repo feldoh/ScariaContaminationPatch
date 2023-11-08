@@ -24,7 +24,7 @@
     <geneClass>ScariaContaminationPatch.GeneticInfectedGene</geneClass>
     <description>Carriers of this gene are infected at the genetic level and can never be cured, curing them will only temporarily remove the infection.\n\nWhile the infected
       can never be cured, it may be possible suppress the infection.</description>
-    <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
+    <iconPath>UI/Icons/Genes/MSS_ZombieIcon</iconPath>
     <exclusionTags>
       <li>Taggerung_SCP_ScariaInfection</li>
     </exclusionTags>
