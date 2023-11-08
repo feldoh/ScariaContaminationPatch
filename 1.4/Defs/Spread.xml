@@ -23,17 +23,17 @@
       <li Class="HediffCompProperties_Discoverable">
         <sendLetterWhenDiscovered>true</sendLetterWhenDiscovered>
       </li>
-      <li Class="ScariaContaminationPatch.Comps.HediffCompProperties_GeneGiver">
+      <li MayRequire="Ludeon.RimWorld.Biotech" Class="ScariaContaminationPatch.Comps.HediffCompProperties_GeneGiver">
         <possibleGenes>
           <li>Taggerung_SCP_ScariaImmunity</li>
 
-          <li MayRequire="Ludeon.RimWorld.Biotech">Deathless</li>
-          <li MayRequire="Ludeon.RimWorld.Biotech">Immunity_SuperStrong</li>
-          <li MayRequire="Ludeon.RimWorld.Biotech">MinTemp_LargeDecrease</li>
-          <li MayRequire="Ludeon.RimWorld.Biotech">MaxTemp_LargeIncrease</li>
-          <li MayRequire="Ludeon.RimWorld.Biotech">Sterile</li>
-          <li MayRequire="Ludeon.RimWorld.Biotech">AptitudeTerrible_Intellectual</li>
-          <li MayRequire="Ludeon.RimWorld.Biotech">Aggression_HyperAggressive</li>
+          <li>Deathless</li>
+          <li>Immunity_SuperStrong</li>
+          <li>MinTemp_LargeDecrease</li>
+          <li>MaxTemp_LargeIncrease</li>
+          <li>Sterile</li>
+          <li>AptitudeTerrible_Intellectual</li>
+          <li>Aggression_HyperAggressive</li>
 
           <!-- Most of the Xenogenes from VRE Fungoids -->
           <li MayRequire="vanillaracesexpanded.fungoid">VRE_MindCoalescence</li>
