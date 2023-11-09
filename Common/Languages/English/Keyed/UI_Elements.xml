@@ -13,4 +13,5 @@
   <ScariaContaminationPatch_AllowAggressiveFoodHunt>Allow starving infected to attack walls to get to food</ScariaContaminationPatch_AllowAggressiveFoodHunt>
   <ScariaContaminationPatch_AllowHuntingInfected>Allow starving infected to hunt each other</ScariaContaminationPatch_AllowHuntingInfected>
   <ScariaContaminationPatch_AllowInfectedNPCBerserk>Allow non-player infected to go berserk</ScariaContaminationPatch_AllowInfectedNPCBerserk>
+  <ScariaContaminationPatch_SurvivalDays>Days before the infection is fatal, 0 for never, only applies to newly infected.</ScariaContaminationPatch_SurvivalDays>
 </LanguageData>

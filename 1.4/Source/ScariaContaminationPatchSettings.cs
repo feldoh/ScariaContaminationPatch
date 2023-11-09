@@ -25,11 +25,14 @@ namespace ScariaContaminationPatch
         public float BerserkRageMtb;
         public float UnstoppableHungerChance;
         public int CriticalHeadshotCooldown;
+        public int SurvivalDays;
         private string _criticalHeadshotCooldownEditBuffer;
+        private string _survivalDaysEditBuffer;
 
         private List<float> _hungerfactorCache;
 
-        public static float BaseMtbDaysToCauseBerserk => HediffDefOf.Scaria?.CompProps<HediffCompProperties_CauseMentalState>().mtbDaysToCauseMentalState ?? 0f;
+        public static float BaseMtbDaysToCauseBerserk => HediffDefOf.Scaria?.CompProps<HediffCompProperties_CauseMentalState>()?.mtbDaysToCauseMentalState ?? 0f;
+        public static int BaseSurvivalDays => HediffDefOf.Scaria?.CompProps<HediffCompProperties_KillAfterDays>()?.days ?? 0;
 
         public void DoWindowContents(Rect wrect)
         {
@@ -71,6 +74,8 @@ namespace ScariaContaminationPatch
             Widgets.HorizontalSlider(berserkIntervalRect, ref BerserkRageMtb, new FloatRange(0f, 10f), berserkIntervalLabel);
             if (Math.Abs(currentBerserkRageMtb - BerserkRageMtb) > 0.005f) ApplyBerserkRageMtb();
             _options.Gap();
+            _options.Label("ScariaContaminationPatch_SurvivalDays".Translate());
+            _options.IntEntry(ref SurvivalDays, ref _survivalDaysEditBuffer);
             _options.End();
         }
 
@@ -78,6 +83,27 @@ namespace ScariaContaminationPatch
         {
             if (BerserkRageMtb <= 0f) BerserkRageMtb = BaseMtbDaysToCauseBerserk;
             if (BerserkRageMtb > 0) HediffDefOf.Scaria.CompProps<HediffCompProperties_CauseMentalState>().mtbDaysToCauseMentalState = BerserkRageMtb;
+        }
+
+        private void ApplySurvivalDays()
+        {
+            if (SurvivalDays <= -1f) SurvivalDays = BaseSurvivalDays;
+
+            if (SurvivalDays <= 0f && HediffDefOf.Scaria.CompProps<HediffCompProperties_KillAfterDays>() is { } compToRemove)
+            {
+                HediffDefOf.Scaria.comps.Remove(compToRemove);
+                return;
+            }
+
+            if (SurvivalDays <= 0) return;
+            if (HediffDefOf.Scaria.CompProps<HediffCompProperties_KillAfterDays>() is { } comp)
+            {
+                comp.days = SurvivalDays;
+            }
+            else
+            {
+                HediffDefOf.Scaria.comps.Add(new HediffCompProperties_KillAfterDays { days = SurvivalDays });
+            }
         }
 
         public void ApplyInfectedHungerFactor()
@@ -107,12 +133,14 @@ namespace ScariaContaminationPatch
             Scribe_Values.Look(ref AllowAggressiveFoodHunt, "AllowAggressiveFoodHunt", false);
             Scribe_Values.Look(ref AllowInfectedHunting, "AllowInfectedHunting", false);
             Scribe_Values.Look(ref CriticalHeadshotCooldown, "CriticalHeadshotCooldown");
+            Scribe_Values.Look(ref SurvivalDays, "SurvivalDays", -1);
         }
 
         public void ApplySettings()
         {
             ApplyInfectedHungerFactor();
             ApplyBerserkRageMtb();
+            ApplySurvivalDays();
         }
     }
 }

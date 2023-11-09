@@ -22,7 +22,7 @@ namespace ScariaContaminationPatch
 
         public override string SettingsCategory()
         {
-            return "Scaria Contamination Patch";
+            return "Scaria Zombies";
         }
     }
 }
