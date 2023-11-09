@@ -13,19 +13,19 @@ namespace ScariaContaminationPatch
 
         private readonly Listing_Standard _options = new();
 
-        public bool AllowInfectedNPCBerserk;
-        public bool AllowInstantKillOfNonZombies;
-        public bool AllowInstantKillOfPlayerFaction;
-        public bool AllowInstantKillOfGuests;
-        public bool AllowAggressiveFoodHunt;
-        public bool AllowInfectedHunting;
-        public float DoorAttackChance;
-        public float InstantKillChance;
-        public float InfectedHungerFactor;
-        public float BerserkRageMtb;
-        public float UnstoppableHungerChance;
-        public int CriticalHeadshotCooldown;
-        public int SurvivalDays;
+        public bool AllowInfectedNPCBerserk = true;
+        public bool AllowInstantKillOfNonZombies = true;
+        public bool AllowInstantKillOfPlayerFaction = true;
+        public bool AllowInstantKillOfGuests = true;
+        public bool AllowAggressiveFoodHunt = true;
+        public bool AllowInfectedHunting = false;
+        public float DoorAttackChance = 0.4f;
+        public float InstantKillChance = 0.6f;
+        public float InfectedHungerFactor = 1;
+        public float BerserkRageMtb = -1;
+        public float UnstoppableHungerChance = 0.8f;
+        public int CriticalHeadshotCooldown = 100;
+        public int SurvivalDays = -1;
         private string _criticalHeadshotCooldownEditBuffer;
         private string _survivalDaysEditBuffer;
 
