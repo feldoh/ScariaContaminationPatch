@@ -91,7 +91,7 @@
     </PropertyGroup>
     <ItemGroup>
         <ReleaseFiles Include="..\..\1.*\**" Exclude="..\..\1.*\Source\**" />
-        <AboutFiles Include="..\..\About\**" />
+        <AboutFiles Include="..\..\About\**" Exclude="..\..\About\*.png~"/>
         <CommonFiles Include="..\..\Common\**" />
         <CompatibilityFiles Include="..\..\Compatibility\**" />
         <ExtraFiles Include="..\..\LoadFolders.xml;..\..\LICENSE;..\..\README.md" />

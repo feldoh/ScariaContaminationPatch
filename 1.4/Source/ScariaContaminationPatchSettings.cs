@@ -75,7 +75,9 @@ namespace ScariaContaminationPatch
             if (Math.Abs(currentBerserkRageMtb - BerserkRageMtb) > 0.005f) ApplyBerserkRageMtb();
             _options.Gap();
             _options.Label("ScariaContaminationPatch_SurvivalDays".Translate());
+            int tmpSurvivalDays = SurvivalDays;
             _options.IntEntry(ref SurvivalDays, ref _survivalDaysEditBuffer);
+            if (SurvivalDays != tmpSurvivalDays) ApplySurvivalDays();
             _options.End();
         }
 
