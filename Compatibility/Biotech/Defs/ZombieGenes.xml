@@ -2,15 +2,29 @@
 
 <Defs>
   <GeneDef>
+    <defName>Taggerung_SCP_ScariaUnstoppableHunger</defName>
+    <label>infected unstoppable hunger</label>
+    <description>Carriers of this gene have a genetic abnormality which interacts with infected tissue in the brain and nose, giving them an almost supernatural ability to sense uninfected prey even through walls. This along with an unstoppable hunger means that if they get hungry enough, they will let no edifice stand in the way of a good meal.\n\n If the carrier is not infected this gene remains dormant and has no effect on the carrier.</description>
+    <iconPath>UI/Icons/Genes/MSS_ZombieIconUnstoppableHunger</iconPath>
+    <exclusionTags>
+      <li>Taggerung_SCP_ScariaImmunity</li>
+    </exclusionTags>
+    <displayCategory>Healing</displayCategory>
+    <displayOrderInCategory>110</displayOrderInCategory>
+    <biostatCpx>0</biostatCpx>
+  </GeneDef>
+
+  <GeneDef>
     <defName>Taggerung_SCP_ScariaImmunity</defName>
     <label>genetic infected immunity</label>
     <description>Carriers of this gene are immune to the attacks of the infected.</description>
     <iconPath>UI/Icons/Genes/Gene_Coagulate</iconPath>
     <exclusionTags>
       <li>Taggerung_SCP_ScariaInfection</li>
+      <li>Taggerung_SCP_ScariaImmunity</li>
     </exclusionTags>
     <displayCategory>Healing</displayCategory>
-    <displayOrderInCategory>110</displayOrderInCategory>
+    <displayOrderInCategory>120</displayOrderInCategory>
     <biostatCpx>1</biostatCpx>
     <biostatMet>-1</biostatMet>
     <makeImmuneTo>
@@ -29,7 +43,7 @@
       <li>Taggerung_SCP_ScariaInfection</li>
     </exclusionTags>
     <displayCategory>Healing</displayCategory>
-    <displayOrderInCategory>110</displayOrderInCategory>
+    <displayOrderInCategory>130</displayOrderInCategory>
     <biostatCpx>0</biostatCpx>
     <biostatMet>1</biostatMet>
     <statFactors>

@@ -23,6 +23,7 @@ namespace ScariaContaminationPatch
         public float InstantKillChance;
         public float InfectedHungerFactor;
         public float BerserkRageMtb;
+        public float UnstoppableHungerChance;
         public int CriticalHeadshotCooldown;
         private string _criticalHeadshotCooldownEditBuffer;
 
@@ -53,6 +54,10 @@ namespace ScariaContaminationPatch
             Rect doorAttackChanceRect = _options.GetRect(RowHeight);
             string doorAttackChanceLabel = "ScariaContaminationPatch_DoorAttackChance".Translate(DoorAttackChance.ToStringPercent());
             Widgets.HorizontalSlider(doorAttackChanceRect, ref DoorAttackChance, new FloatRange(0f, 1f), doorAttackChanceLabel);
+            _options.Gap();
+            Rect unstoppableHungerChanceRect = _options.GetRect(RowHeight);
+            string unstoppableHungerChanceLabel = "ScariaContaminationPatch_UnstoppableHungerChance".Translate(UnstoppableHungerChance.ToStringPercent());
+            Widgets.HorizontalSlider(unstoppableHungerChanceRect, ref UnstoppableHungerChance, new FloatRange(0f, 1f), unstoppableHungerChanceLabel);
             _options.Gap();
             Rect infectedHungerFactorRect = _options.GetRect(RowHeight);
             string infectedHungerFactorLabel = "ScariaContaminationPatch_InfectedHungerFactor".Translate(InfectedHungerFactor.ToStringDecimalIfSmall());
@@ -94,6 +99,7 @@ namespace ScariaContaminationPatch
             Scribe_Values.Look(ref InstantKillChance, "InstantKillChance", 1.0f);
             Scribe_Values.Look(ref DoorAttackChance, "DoorAttackChance", 0.4f);
             Scribe_Values.Look(ref InfectedHungerFactor, "InfectedHungerFactor", 1.0f);
+            Scribe_Values.Look(ref UnstoppableHungerChance, "UnstoppableHungerChance", 0.8f);
             Scribe_Values.Look(ref AllowInfectedNPCBerserk, "AllowInfectedNPCBerserk", true);
             Scribe_Values.Look(ref AllowInstantKillOfNonZombies, "AllowInstantKillOfNonZombies", true);
             Scribe_Values.Look(ref AllowInstantKillOfPlayerFaction, "AllowInstantKillOfPlayerFaction", true);

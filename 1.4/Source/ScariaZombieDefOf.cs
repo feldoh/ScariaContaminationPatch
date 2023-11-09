@@ -8,6 +8,8 @@ public static class ScariaZombieDefOf
 {
     [MayRequireBiotech]
     public static GeneDef Taggerung_SCP_ScariaCarrier;
+    [MayRequireBiotech]
+    public static GeneDef Taggerung_SCP_ScariaUnstoppableHunger;
 
     public static HediffDef Taggerung_SCP_ViralBuildup;
 

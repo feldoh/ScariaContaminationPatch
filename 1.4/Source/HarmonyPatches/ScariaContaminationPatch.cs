@@ -203,6 +203,9 @@ public static class JobGiver_GetFoodPatch
             return __result;
         }
 
+        if (!(pawn.genes?.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaUnstoppableHunger) ?? false) &&
+            !Rand.ChanceSeeded(ScariaContaminationPatch.Settings.UnstoppableHungerChance, pawn.thingIDNumber)) return __result;
+
         prey = pawn.Map.mapPawns.AllPawnsSpawned
             .Where(mapPawn =>
                 !(mapPawn.health?.hediffSet?.HasHediff(HediffDefOf.Scaria) ?? false) &&
