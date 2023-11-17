@@ -13,13 +13,18 @@ public class PatchSetXenotype
     public static HashSet<string> _fungalZombies = new(new List<string> { "VRE_Fungoid", "AG_Mycormorph" });
 
     [HarmonyPrefix]
-    public static bool Prefix(XenotypeDef ___xenotype, Pawn ___pawn, XenotypeDef xenotype)
+    public static bool Prefix(XenotypeDef ___xenotype, Pawn ___pawn, XenotypeDef xenotype, out bool __state)
     {
+        __state = false;
         if (!ModLister.CheckBiotech("Xenotypes")
             || Current.ProgramState != ProgramState.Playing
             || xenotype?.defName != "Baseliner"
             || !_fungalZombies.Contains(___xenotype?.defName)
             || PawnGenerator.IsBeingGenerated(___pawn)) return true;
+
+        // Maybe grant immunity gene
+        __state = Rand.Chance(ScariaContaminationPatch.Settings.ImmunityGeneChance);
+
         // If no Scaria to cure give points anyway
         if (___pawn.health?.hediffSet?.GetFirstHediffOfDef(HediffDefOf.Scaria) is not { } hediff)
         {
@@ -52,6 +57,17 @@ public class PatchSetXenotype
         }
 
         return true;
+    }
+
+    [HarmonyPostfix]
+    public static void Postfix(Pawn ___pawn, bool __state)
+    {
+        if (!__state) return;
+        ___pawn.genes.AddGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity, true);
+        if (!PawnUtility.ShouldSendNotificationAbout(___pawn)) return;
+        Find.LetterStack.ReceiveLetter("ScariaContaminationPatch_GeneImmunityLetter".Translate(),
+            "ScariaContaminationPatch_GeneImmunityLetterText".Translate(___pawn.NameShortColored, HediffDefOf.Scaria.LabelCap),
+            LetterDefOf.PositiveEvent, (Thing)___pawn);
     }
 }
 
