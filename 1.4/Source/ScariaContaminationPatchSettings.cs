@@ -24,6 +24,7 @@ namespace ScariaContaminationPatch
         public float InfectedHungerFactor = 1;
         public float BerserkRageMtb = -1;
         public float UnstoppableHungerChance = 0.8f;
+        public float ImmunityGeneChance = 0.01f;
         public int CriticalHeadshotCooldown = 100;
         public int SurvivalDays = -1;
         private string _criticalHeadshotCooldownEditBuffer;
@@ -61,6 +62,10 @@ namespace ScariaContaminationPatch
             Rect unstoppableHungerChanceRect = _options.GetRect(RowHeight);
             string unstoppableHungerChanceLabel = "ScariaContaminationPatch_UnstoppableHungerChance".Translate(UnstoppableHungerChance.ToStringPercent());
             Widgets.HorizontalSlider(unstoppableHungerChanceRect, ref UnstoppableHungerChance, new FloatRange(0f, 1f), unstoppableHungerChanceLabel);
+            _options.Gap();
+            Rect ImmunityGeneChanceRect = _options.GetRect(RowHeight);
+            string ImmunityGeneChanceLabel = "ScariaContaminationPatch_ImmunityGeneChance".Translate(ImmunityGeneChance.ToStringPercent());
+            Widgets.HorizontalSlider(ImmunityGeneChanceRect, ref ImmunityGeneChance, new FloatRange(0f, 1f), ImmunityGeneChanceLabel);
             _options.Gap();
             Rect infectedHungerFactorRect = _options.GetRect(RowHeight);
             string infectedHungerFactorLabel = "ScariaContaminationPatch_InfectedHungerFactor".Translate(InfectedHungerFactor.ToStringDecimalIfSmall());
@@ -126,6 +131,7 @@ namespace ScariaContaminationPatch
             Scribe_Values.Look(ref BerserkRageMtb, "BerserkRageMtb", 0f);
             Scribe_Values.Look(ref InstantKillChance, "InstantKillChance", 1.0f);
             Scribe_Values.Look(ref DoorAttackChance, "DoorAttackChance", 0.4f);
+            Scribe_Values.Look(ref ImmunityGeneChance, "ImmunityGeneChance", 0.01f);
             Scribe_Values.Look(ref InfectedHungerFactor, "InfectedHungerFactor", 1.0f);
             Scribe_Values.Look(ref UnstoppableHungerChance, "UnstoppableHungerChance", 0.8f);
             Scribe_Values.Look(ref AllowInfectedNPCBerserk, "AllowInfectedNPCBerserk", true);

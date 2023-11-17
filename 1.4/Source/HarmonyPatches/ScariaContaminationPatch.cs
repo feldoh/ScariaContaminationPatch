@@ -164,6 +164,17 @@ public static class IsAcceptablePreyForPatch
     }
 }
 
+[HarmonyPatch(typeof(HediffSet), nameof(HediffSet.AddDirect))]
+public static class HediffSet_AddDirectPatch
+{
+    [HarmonyPrefix]
+    public static bool AddDirect(HediffSet __instance, Hediff hediff)
+    {
+        if (hediff.def != HediffDefOf.Scaria) return true;
+        return !__instance.pawn.genes.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity);
+    }
+}
+
 [HarmonyPatch(typeof(JobGiver_GetFood), "TryGiveJob")]
 public static class JobGiver_GetFoodPatch
 {
@@ -248,6 +259,7 @@ public static class JobGiver_GetFoodPatch
         jobGoto.locomotionUrgency = LocomotionUrgency.Walk;
         jobGoto.canBashDoors = true;
         jobGoto.canBashFences = true;
+        jobGoto.attackDoorIfTargetLost = true;
         return jobGoto;
     }
 }

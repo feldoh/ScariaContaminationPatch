@@ -30,6 +30,9 @@
     <makeImmuneTo>
       <li>Scaria</li>
     </makeImmuneTo>
+    <hediffGiversCannotGive>
+      <li>Scaria</li>
+    </hediffGiversCannotGive>
   </GeneDef>
 
   <GeneDef>

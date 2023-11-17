@@ -3,6 +3,7 @@
 <LanguageData>
   <ScariaContaminationPatch_InstantKillChance>Instant Kill On Headshot Chance: {0}</ScariaContaminationPatch_InstantKillChance>
   <ScariaContaminationPatch_InfectedHungerFactor>Hunger Rate multiplier for infected: x{0}</ScariaContaminationPatch_InfectedHungerFactor>
+  <ScariaContaminationPatch_ImmunityGeneChance>Chance for cure to grant genetic immunity: {0}</ScariaContaminationPatch_ImmunityGeneChance>
   <ScariaContaminationPatch_BerserkInterval>Days between infected going berserk: {0} Days</ScariaContaminationPatch_BerserkInterval>
   <ScariaContaminationPatch_DoorAttackChance>Chance for starving infected to prefer breaking doors to walls: {0}</ScariaContaminationPatch_DoorAttackChance>
   <ScariaContaminationPatch_UnstoppableHungerChance>Chance for starving infected to break down edifices to reach prey if needed: {0}</ScariaContaminationPatch_UnstoppableHungerChance>
@@ -14,4 +15,5 @@
   <ScariaContaminationPatch_AllowHuntingInfected>Allow starving infected to hunt each other</ScariaContaminationPatch_AllowHuntingInfected>
   <ScariaContaminationPatch_AllowInfectedNPCBerserk>Allow non-player infected to go berserk</ScariaContaminationPatch_AllowInfectedNPCBerserk>
   <ScariaContaminationPatch_SurvivalDays>Days before the infection is fatal, 0 for never, only applies to newly infected.</ScariaContaminationPatch_SurvivalDays>
+  <ScariaContaminationPatch_MakeBald>Clear scalp growth</ScariaContaminationPatch_MakeBald>
 </LanguageData>
