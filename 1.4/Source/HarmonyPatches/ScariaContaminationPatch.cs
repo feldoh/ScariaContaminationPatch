@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -81,12 +82,25 @@ public class PatchJobGiver_MentalStateHandler
         bool causedByDamage = false,
         bool causedByPsycast = false)
     {
+        bool isBerserk = MentalStateDefOf.Berserk.Equals(stateDef);
+
+        // Prevent scaria attacks causing berserk
+        if (isBerserk
+            && HediffSet_AddDirectPatch.PawnBlockedScaria == ___pawn
+            && ___pawn.genes.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity))
+        {
+            HediffSet_AddDirectPatch.PawnBlockedScaria = null;
+            return false;
+        }
+
         // Prevent scaria ridden non-player pawns going berserk
-        if (ScariaContaminationPatch.Settings.AllowInfectedNPCBerserk ||
-            !MentalStateDefOf.Berserk.Equals(stateDef) ||
-            ___pawn.IsColonist ||
-            ___pawn.def.race.intelligence < Intelligence.ToolUser ||
-            !___pawn.health.hediffSet.HasHediff(HediffDefOf.Scaria)) return true;
+        {
+            if (ScariaContaminationPatch.Settings.AllowInfectedNPCBerserk ||
+                !isBerserk ||
+                ___pawn.IsColonist ||
+                ___pawn.def.race.intelligence < Intelligence.ToolUser ||
+                !___pawn.health.hediffSet.HasHediff(HediffDefOf.Scaria)) return true;
+        }
 
 #if DEBUG
             Log.Message("Preventing pawn from running berserk as they are a non-colonist with scaria");
@@ -167,11 +181,16 @@ public static class IsAcceptablePreyForPatch
 [HarmonyPatch(typeof(HediffSet), nameof(HediffSet.AddDirect))]
 public static class HediffSet_AddDirectPatch
 {
+    [CanBeNull] public static Pawn PawnBlockedScaria = null;
+
     [HarmonyPrefix]
     public static bool AddDirect(HediffSet __instance, Hediff hediff)
     {
         if (hediff.def != HediffDefOf.Scaria) return true;
-        return !__instance.pawn.genes.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity);
+        PawnBlockedScaria = __instance.pawn.genes.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity)
+            ? __instance.pawn
+            : null;
+        return PawnBlockedScaria == null;
     }
 }
 
