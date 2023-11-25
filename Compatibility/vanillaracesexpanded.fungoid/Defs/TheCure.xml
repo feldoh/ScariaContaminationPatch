@@ -44,8 +44,8 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>Steel</li>
-        <li>Chemfuel</li>
+        <li>Plasteel</li>
+        <li>ComponentIndustrial</li>
         <li MayRequire="VanillaExpanded.VPlantsE">VPE_Mycothread</li>
       </thingDefs>
     </fixedIngredientFilter>
@@ -54,6 +54,63 @@
     </products>
     <skillRequirements>
       <Crafting>12</Crafting>
+    </skillRequirements>
+    <workSkill>Crafting</workSkill>
+  </RecipeDef>
+
+  <RecipeDef MayRequire="sarg.alphagenes">
+    <defName>Taggerung_SCP_MakeAdvancedNullifier</defName>
+    <label>make Advanced Nullifier</label>
+    <description>Craft Advanced Nullifiers from fungi, advanced components, and plasteel.</description>
+    <jobString>crafting nullifier</jobString>
+    <researchPrerequisite>Taggerung_SCP_TechAdvancedNullifierCrafting</researchPrerequisite>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>4000</workAmount>
+    <workSkillLearnFactor>0.75</workSkillLearnFactor>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <recipeUsers>
+      <li>TableMachining</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>250</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li MayRequire="VanillaExpanded.VPlantsE">
+        <filter>
+          <thingDefs>
+            <li>VPE_Mycothread</li>
+          </thingDefs>
+        </filter>
+        <count>250</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Plasteel</li>
+        <li>ComponentSpacer</li>
+        <li MayRequire="VanillaExpanded.VPlantsE">VPE_Mycothread</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <MSS_XenotypeNullifier>1</MSS_XenotypeNullifier>
+    </products>
+    <skillRequirements>
+      <Crafting>15</Crafting>
     </skillRequirements>
     <workSkill>Crafting</workSkill>
   </RecipeDef>
@@ -70,6 +127,20 @@
     </prerequisites>
     <researchViewX>8.815</researchViewX>
     <researchViewY>5.115</researchViewY>
+    <tab>Main</tab>
+  </ResearchProjectDef>
+
+    <ResearchProjectDef MayRequire="sarg.alphagenes">
+    <defName>Taggerung_SCP_TechAdvancedNullifierCrafting</defName>
+    <label>Advancing Curing Methods</label>
+    <description>Expand on the original Xenotype Nullifier crafting recipe and devise a method of quickly administering a cure on all targets, including hostile.</description>
+    <baseCost>4000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Taggerung_SCP_TechNullifierCrafting</li>
+    </prerequisites>
+    <researchViewX>8.815</researchViewX>
+    <researchViewY>8.115</researchViewY>
     <tab>Main</tab>
   </ResearchProjectDef>
 </Defs>
