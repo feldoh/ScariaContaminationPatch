@@ -14,6 +14,7 @@ public static class ScariaZombieDefOf
     public static GeneDef Taggerung_SCP_ScariaUnstoppableHunger;
 
     public static HediffDef Taggerung_SCP_ViralBuildup;
+    public static HediffDef Taggerung_SCP_ImmunixHigh;
 
     static ScariaZombieDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(ScariaZombieDefOf));
 }

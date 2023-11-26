@@ -90,6 +90,9 @@
         <StartArguments>-quicktest</StartArguments>
     </PropertyGroup>
     <ItemGroup>
+        <CommonFiles Include="..\..\Compatibility\ZombieRenames\Languages\English\Keyed\WorkTags.xml">
+          <Link>ScariaContaminationPatch\Compatibility\ZombieRenames\Languages\English\Keyed\WorkTags.xml</Link>
+        </CommonFiles>
         <ReleaseFiles Include="..\..\1.*\**" Exclude="..\..\1.*\Source\**" />
         <AboutFiles Include="..\..\About\**" Exclude="..\..\About\*.png~"/>
         <CommonFiles Include="..\..\Common\**" />

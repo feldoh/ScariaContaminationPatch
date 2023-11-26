@@ -87,7 +87,8 @@ public class PatchJobGiver_MentalStateHandler
         // Prevent scaria attacks causing berserk
         if (isBerserk
             && HediffSet_AddDirectPatch.PawnBlockedScaria == ___pawn
-            && ___pawn.genes.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity))
+            && (___pawn.genes.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity)
+                || ___pawn.health.hediffSet.HasHediff(ScariaZombieDefOf.Taggerung_SCP_ImmunixHigh)))
         {
             HediffSet_AddDirectPatch.PawnBlockedScaria = null;
             return false;
@@ -187,7 +188,8 @@ public static class HediffSet_AddDirectPatch
     public static bool AddDirect(HediffSet __instance, Hediff hediff)
     {
         if (hediff.def != HediffDefOf.Scaria) return true;
-        PawnBlockedScaria = __instance.pawn.genes.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity)
+        PawnBlockedScaria = __instance.pawn.genes.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity) ||
+                            __instance.pawn.health.hediffSet.HasHediff(ScariaZombieDefOf.Taggerung_SCP_ImmunixHigh)
             ? __instance.pawn
             : null;
         return PawnBlockedScaria == null;
