@@ -130,7 +130,7 @@
     <tab>Main</tab>
   </ResearchProjectDef>
 
-    <ResearchProjectDef MayRequire="sarg.alphagenes">
+  <ResearchProjectDef MayRequire="sarg.alphagenes">
     <defName>Taggerung_SCP_TechAdvancedNullifierCrafting</defName>
     <label>Advancing Curing Methods</label>
     <description>Expand on the original Xenotype Nullifier crafting recipe and devise a method of quickly administering a cure on all targets, including hostile.</description>

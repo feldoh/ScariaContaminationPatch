@@ -42,4 +42,5 @@ There are more than just your classic zombies wandering around so if you don't h
 ## Attribution
 This mod was originally made by [@Garethp](https://github.com/Garethp). This is an extended version of the original and is uploaded with his permission.
 
-* Mr Samuel Streamer for the art and various XML contributions 
+* Mr Samuel Streamer for the art and various XML contributions
+* Sarg Bjornson for allowing the advanced Xenotype Nullifier, building on his original from [Alpha Genes](https://steamcommunity.com/sharedfiles/filedetails/?id=2891845502)

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+  <ThingDef ParentName="AG_GeneToolBase">
+    <defName>MSS_XenotypeNullifier</defName>
+    <label>Advanced Nullifier</label>
+    <description>An advanced variant of the Xenotype Nullifier. This device is a self-contained aerosol, which when sprayed on the skin of a person, begins the gene reversion process. Unlike a standard nullifier, the simplicity of the application means the Advanced Nullifier can be used on any target, including hostile. The target will drop into a coma for 3 days. Using the nullifier on a colonist suffering from the coma will have no effect.</description>
+    <graphicData>
+      <texPath>Things/Item/AG_XenotypeNullifier</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stackLimit>1</stackLimit>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>AG_UseXenotypeNullifier</useJob>
+        <useLabel>Use xenotype nullifier</useLabel>
+        <useDuration>60</useDuration>
+      </li>
+      <li Class="CompProperties_Targetable">
+        <compClass>CompTargetable_SinglePawn</compClass>
+      </li>
+      <li Class="AlphaGenes.CompProperties_TargetEffect_XenotypeNullifier">
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>
