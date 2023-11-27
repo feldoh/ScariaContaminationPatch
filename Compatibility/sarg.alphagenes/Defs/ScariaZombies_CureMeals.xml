@@ -110,7 +110,29 @@
       <ingestSound>RawVegetable_Eat</ingestSound>
       <outcomeDoers>
         <li Class="ScariaContaminationPatch.IngestionOutcomeDoer_ChangeGenes">
-          <genesToRemove>1</genesToRemove>
+          <genesToRemove>3</genesToRemove>
+          <genesToPrioritise>
+            <li>Taggerung_SCP_ScariaCarrier</li>
+            <li>Taggerung_SCP_ScariaUnstoppableHunger</li>
+            <li>Aggression_HyperAggressive</li>
+            <li>Deathless</li>
+
+            <!-- Xenogenes from VRE Fungoids -->
+            <li MayRequire="vanillaracesexpanded.fungoid">VRE_MindCoalescence</li>
+            <li MayRequire="vanillaracesexpanded.fungoid">VRE_GeneInfector</li>
+            <li MayRequire="vanillaracesexpanded.fungoid">VRE_FungalFlesh</li>
+            <li MayRequire="vanillaracesexpanded.fungoid">VRE_ExtremeSkillLoss</li>
+            <li MayRequire="vanillaracesexpanded.fungoid">VRE_SkillDegradation</li>
+            <li MayRequire="vanillaracesexpanded.fungoid">VRE_Repulsive</li>
+
+            <!-- Xenogenes from AG Mycomorph -->
+            <li MayRequire="sarg.alphagenes">AG_RotStinkProducer</li>
+            <li MayRequire="sarg.alphagenes">AG_Skin_Rot</li>
+          </genesToPrioritise>
+          <genesToPreserve>
+            <li>Taggerung_SCP_ScariaImmunity</li>
+          </genesToPreserve>
+          <allowArchiteGenes>true</allowArchiteGenes>
         </li>
       </outcomeDoers>
     </ingestible>
@@ -133,7 +155,7 @@
             <li>FoodMeals</li>
           </categories>
         </filter>
-        <count>25</count>
+        <count>20</count>
       </li>
       <li>
         <filter>
@@ -153,7 +175,7 @@
       </categories>
     </fixedIngredientFilter>
     <products>
-      <Taggerung_SCP_MinorCureMeal>30</Taggerung_SCP_MinorCureMeal>
+      <Taggerung_SCP_MinorCureMeal>20</Taggerung_SCP_MinorCureMeal>
     </products>
     <workSkill>Cooking</workSkill>
     <recipeUsers>
