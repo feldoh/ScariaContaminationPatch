@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+  <ThingDef ParentName="MealCookedIngredientless">
+    <defName>Taggerung_SCP_CureMeal</defName>
+    <label>cure meal</label>
+    <description>A meal mixed with a dose of the cure, one bite and anyone ingesting it will begin to return to normal.\n\nUnfortunately the active component of the cure has a detrimental effect on the meals making them likely to cause food poisoning.</description>
+    <descriptionHyperlinks>
+      <ThingDef>MSS_XenotypeNullifier</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Meal/SurvivalPack</texPath>
+      <graphicClass>Graphic_MealVariants</graphicClass>
+    </graphicData>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+      <Mass>0.015</Mass>
+      <Nutrition>0.8</Nutrition>
+      <FoodPoisonChanceFixedHuman>0.8</FoodPoisonChanceFixedHuman>
+      <Flammability>1.4</Flammability>
+    </statBases>
+    <ingestible>
+      <foodType>Meal</foodType>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>-50</optimalityOffsetHumanlikes>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>RawVegetable_Eat</ingestSound>
+      <outcomeDoers>
+        <li Class="ScariaContaminationPatch.IngestionOutcomeDoer_ChangeGenes">
+          <forcedXenotype>Baseliner</forcedXenotype>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <allowedArchonexusCount>200</allowedArchonexusCount>
+  </ThingDef>
+
+  <RecipeDef ParentName="CookMealBase">
+    <defName>Taggerung_SCP_Make_CureMeal</defName>
+    <label>make cure laced meal</label>
+    <description>Lace a dose of the cure into into a meal.</description>
+    <jobString>Lacing meal with the cure.</jobString>
+    <workAmount>450</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>FoodMeals</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MSS_XenotypeNullifier</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MSS_XenotypeNullifier</li>
+      </thingDefs>
+      <categories>
+        <li>FoodMeals</li>
+      </categories>
+    </fixedIngredientFilter>
+    <products>
+      <Taggerung_SCP_CureMeal>1</Taggerung_SCP_CureMeal>
+    </products>
+    <workSkill>Cooking</workSkill>
+    <recipeUsers>
+      <li>Campfire</li>
+      <li>ElectricStove</li>
+      <li>FueledStove</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <ThingDef ParentName="MealCookedIngredientless">
+    <defName>Taggerung_SCP_MinorCureMeal</defName>
+    <label>low dose cure meal</label>
+    <description>A meal mixed with a very low dose of the cure, anyone ingesting enough will little by little, return to normal.\n\nUnfortunately the active component of the cure has a detrimental effect on the meals making them likely to cause food poisoning.</description>
+    <descriptionHyperlinks>
+      <ThingDef>MSS_XenotypeNullifier</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Meal/SurvivalPack</texPath>
+      <graphicClass>Graphic_MealVariants</graphicClass>
+    </graphicData>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MarketValue>40</MarketValue>
+      <Mass>0.015</Mass>
+      <Nutrition>0.8</Nutrition>
+      <FoodPoisonChanceFixedHuman>0.1</FoodPoisonChanceFixedHuman>
+      <Flammability>1.4</Flammability>
+    </statBases>
+    <ingestible>
+      <foodType>Meal</foodType>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>-50</optimalityOffsetHumanlikes>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>RawVegetable_Eat</ingestSound>
+      <outcomeDoers>
+        <li Class="ScariaContaminationPatch.IngestionOutcomeDoer_ChangeGenes">
+          <genesToRemove>1</genesToRemove>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <allowedArchonexusCount>200</allowedArchonexusCount>
+  </ThingDef>
+
+  <RecipeDef ParentName="CookMealBase">
+    <defName>Taggerung_SCP_Make_MinorCureMeal</defName>
+    <label>make low-dose cure laced meals</label>
+    <description>Lace a dose of the cure into into a batch of meals.</description>
+    <jobString>Lacing meals with the cure.</jobString>
+    <workAmount>450</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>FoodMeals</li>
+          </categories>
+        </filter>
+        <count>25</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MSS_XenotypeNullifier</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MSS_XenotypeNullifier</li>
+      </thingDefs>
+      <categories>
+        <li>FoodMeals</li>
+      </categories>
+    </fixedIngredientFilter>
+    <products>
+      <Taggerung_SCP_MinorCureMeal>25</Taggerung_SCP_MinorCureMeal>
+    </products>
+    <workSkill>Cooking</workSkill>
+    <recipeUsers>
+      <li>Campfire</li>
+      <li>ElectricStove</li>
+      <li>FueledStove</li>
+    </recipeUsers>
+  </RecipeDef>
+</Defs>

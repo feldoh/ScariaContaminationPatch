@@ -65,6 +65,7 @@
         <Compile Include="HarmonyPatches\AcidSmogPatch.cs" />
         <Compile Include="HarmonyPatches\FungoidPatch.cs" />
         <Compile Include="HediffGiver_RandomGene.cs" />
+        <Compile Include="IngestionOutcomeDoer_ChangeGenes.cs" />
         <Compile Include="Recipe_SuppressScaria.cs" />
         <Compile Include="ScariaContaminationPatch.cs" />
         <Compile Include="HarmonyPatches\ScariaContaminationPatch.cs" />

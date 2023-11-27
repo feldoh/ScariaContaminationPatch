@@ -146,6 +146,11 @@
     <workSpeedStat>CookSpeed</workSpeedStat>
     <effectWorking>Cook</effectWorking>
     <soundWorking>Recipe_CookMeal</soundWorking>
+    <recipeUsers>
+      <li>Campfire</li>
+      <li>ElectricStove</li>
+      <li>FueledStove</li>
+    </recipeUsers>
     <ingredients>
       <li>
         <filter>
