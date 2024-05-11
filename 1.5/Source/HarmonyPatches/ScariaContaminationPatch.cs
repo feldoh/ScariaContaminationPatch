@@ -8,15 +8,15 @@ using Verse.AI;
 
 namespace ScariaContaminationPatch.HarmonyPatches;
 
-[HarmonyPatch(typeof(JobGiver_Berserk), "FindPawnTarget")]
+[HarmonyPatch(typeof(JobGiver_Berserk), "FindAttackTarget")]
 public class PatchJobGiver_Berserk
 {
-    public static bool Prefix(ref Pawn __result, Pawn pawn)
+    public static bool Prefix(ref Thing __result, Pawn pawn)
     {
-        __result = (Pawn)AttackTargetFinder.BestAttackTarget(
+        __result = (Thing)AttackTargetFinder.BestAttackTarget(
             pawn,
             TargetScanFlags.NeedReachable,
-            x => x is Pawn pawn1 && pawn1.Spawned && !pawn1.Downed && !pawn1.IsInvisible() &&
+            x => x is Pawn { Spawned: true, Downed: false } pawn1 && !pawn1.IsPsychologicallyInvisible() &&
                  !pawn1.health.hediffSet.HasHediff(HediffDefOf.Scaria),
             maxDist: 40f,
             canBashDoors: true

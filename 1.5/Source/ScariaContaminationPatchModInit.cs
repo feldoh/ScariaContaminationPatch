@@ -7,6 +7,6 @@ public static class ScariaContaminationPatchModInit
 {
     static ScariaContaminationPatchModInit()
     {
-        ScariaContaminationPatch.Settings.ApplySettings();
+        ScariaContaminationPatch.Settings?.ApplySettings();
     }
 }

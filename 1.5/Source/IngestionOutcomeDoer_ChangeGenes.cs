@@ -8,10 +8,10 @@ namespace ScariaContaminationPatch;
 
 public class IngestionOutcomeDoer_ChangeGenes : IngestionOutcomeDoer
 {
-    public List<GeneCategoryDef> includedGeneCategories = new();
-    public List<GeneCategoryDef> excludedGeneCategories = new();
-    public List<GeneDef> genesToPrioritise = new();
-    public List<GeneDef> genesToPreserve = new();
+    public List<GeneCategoryDef> includedGeneCategories = [];
+    public List<GeneCategoryDef> excludedGeneCategories = [];
+    public List<GeneDef> genesToPrioritise = [];
+    public List<GeneDef> genesToPreserve = [];
     public int genesToRemove = 1;
     public XenotypeDef forcedXenotype = null;
     public bool allowArchiteGenes = true;
@@ -19,7 +19,7 @@ public class IngestionOutcomeDoer_ChangeGenes : IngestionOutcomeDoer
     public int maxNonPriorityOrder = 100;
     public int priorityOnlyBeforeOrder = 5;
 
-    protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested)
+    protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
     {
         if (pawn.genes == null) return;
         if (forcedXenotype != null)

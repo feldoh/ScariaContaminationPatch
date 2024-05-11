@@ -33,7 +33,7 @@
         </filter>
         <count>5</count>
       </li>
-      <li MayRequire="VanillaExpanded.VPlantsE">
+      <li MayRequire="VanillaExpanded.VPlantsEMushrooms">
         <filter>
           <thingDefs>
             <li>VPE_Mycothread</li>
@@ -46,7 +46,7 @@
       <thingDefs>
         <li>Plasteel</li>
         <li>ComponentIndustrial</li>
-        <li MayRequire="VanillaExpanded.VPlantsE">VPE_Mycothread</li>
+        <li MayRequire="VanillaExpanded.VPlantsEMushrooms">VPE_Mycothread</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
@@ -90,7 +90,7 @@
         </filter>
         <count>2</count>
       </li>
-      <li MayRequire="VanillaExpanded.VPlantsE">
+      <li MayRequire="VanillaExpanded.VPlantsEMushrooms">
         <filter>
           <thingDefs>
             <li>VPE_Mycothread</li>
@@ -103,7 +103,7 @@
       <thingDefs>
         <li>Plasteel</li>
         <li>ComponentSpacer</li>
-        <li MayRequire="VanillaExpanded.VPlantsE">VPE_Mycothread</li>
+        <li MayRequire="VanillaExpanded.VPlantsEMushrooms">VPE_Mycothread</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>

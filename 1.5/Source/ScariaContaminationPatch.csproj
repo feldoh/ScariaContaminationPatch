@@ -6,12 +6,11 @@
         <RootNamespace>ScariaContaminationPatch</RootNamespace>
         <AssemblyName>ScariaContaminationPatch</AssemblyName>
         <TargetFramework>net48</TargetFramework>
-        <LangVersion>latest</LangVersion>
+        <LangVersion>preview</LangVersion>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <OutputPath>../Assemblies/</OutputPath>
         <ModName>$(MSBuildProjectName)</ModName>
-        <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
-        <SteamPath>$(RIMWORLD_STEAM_PATH)</SteamPath>
+        <SteamModsPath>D:/SteamLibrary/steamapps/common/RimWorld/Mods</SteamModsPath>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -34,13 +33,11 @@
 
     <ItemGroup>
         <Reference Include="Assembly-CSharp">
-            <HintPath Condition="Exists('$(SteamPath)/RimWorldWin64_Data')">$(SteamPath)/RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
-            <HintPath Condition="!Exists('$(SteamPath)/RimWorldWin64_Data')">../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
+            <HintPath Condition="Exists('../../../../RimWorldWin64_Data')">../../../../RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-            <HintPath Condition="Exists('$(SteamPath)/RimWorldWin64_Data')">$(SteamPath)/RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
-            <HintPath Condition="!Exists('$(SteamPath)/RimWorldWin64_Data')">../../../../RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+            <HintPath Condition="Exists('../../../../RimWorldWin64_Data')">../../../../RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
     </ItemGroup>
@@ -64,9 +61,6 @@
         <StartArguments>-quicktest</StartArguments>
     </PropertyGroup>
     <ItemGroup>
-        <CommonFiles Include="../../Compatibility/ZombieRenames/Languages/English/Keyed/WorkTags.xml">
-          <Link>ScariaContaminationPatch/Compatibility/ZombieRenames/Languages/English/Keyed/WorkTags.xml</Link>
-        </CommonFiles>
         <ReleaseFiles Include="../../1.*/**" Exclude="../../1.*/Source/**" />
         <AboutFiles Include="../../About/**" Exclude="../../About/*.png~"/>
         <CommonFiles Include="../../Common/**" />
@@ -84,7 +78,7 @@
         <ZipDirectory DestinationFile="../../$(ModName).zip" SourceDirectory="../../Release" />
 
         <ItemGroup>
-            <ReleaseFolder Include="../../../Release/**" />
+            <ReleaseFolder Include="../../Release/**" />
             <ReleaseFolder Condition=" '$(Configuration)' == 'Debug' " Include="../../../1.*/Assemblies/*.pdb;../../../Compatibility/**/*.pdb" />
         </ItemGroup>
         <RemoveDir Condition="Exists('$(SteamModsPath)')" Directories="$(SteamModsPath)/$(ModName)" ContinueOnError="true" />

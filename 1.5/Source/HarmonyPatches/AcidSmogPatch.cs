@@ -19,7 +19,7 @@ public static class AcidSmogPatch
 
     private static void DoPawnsToxicDamage(Map map)
     {
-        List<Pawn> allPawnsSpawned = map.mapPawns.AllPawnsSpawned;
+        IReadOnlyList<Pawn> allPawnsSpawned = map.mapPawns.AllPawnsSpawned;
         foreach (Pawn t in allPawnsSpawned) DoPawnToxicDamage(t);
     }
 

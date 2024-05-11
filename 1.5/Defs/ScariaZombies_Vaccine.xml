@@ -41,7 +41,7 @@
     <costList>
       <Neutroamine>2</Neutroamine>
       <Penoxycyline>1</Penoxycyline>
-      <VPE_Mycothread MayRequire="VanillaExpanded.VPlantsE">1</VPE_Mycothread>
+      <VPE_Mycothread MayRequire="VanillaExpanded.VPlantsEMushrooms">1</VPE_Mycothread>
     </costList>
     <comps>
       <li Class="CompProperties_Drug">
