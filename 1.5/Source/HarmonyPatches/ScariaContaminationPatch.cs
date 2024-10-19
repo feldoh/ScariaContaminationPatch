@@ -87,7 +87,7 @@ public class PatchJobGiver_MentalStateHandler
         // Prevent scaria attacks causing berserk
         if (isBerserk
             && HediffSet_AddDirectPatch.PawnBlockedScaria == ___pawn
-            && (___pawn.genes.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity)
+            && (___pawn.genes.HasActiveGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity)
                 || ___pawn.health.hediffSet.HasHediff(ScariaZombieDefOf.Taggerung_SCP_ImmunixHigh)))
         {
             HediffSet_AddDirectPatch.PawnBlockedScaria = null;
@@ -188,7 +188,7 @@ public static class HediffSet_AddDirectPatch
     public static bool AddDirect(HediffSet __instance, Hediff hediff)
     {
         if (hediff.def != HediffDefOf.Scaria) return true;
-        PawnBlockedScaria = __instance.pawn.genes.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity) ||
+        PawnBlockedScaria = __instance.pawn.genes.HasActiveGene(ScariaZombieDefOf.Taggerung_SCP_ScariaImmunity) ||
                             __instance.pawn.health.hediffSet.HasHediff(ScariaZombieDefOf.Taggerung_SCP_ImmunixHigh)
             ? __instance.pawn
             : null;
@@ -221,7 +221,6 @@ public static class JobGiver_GetFoodPatch
             .FirstOrDefault();
         if (prey != null)
         {
-            Log.Message(prey.LabelShort);
             TaggedString reason = "LetterPredatorHuntingColonist".Translate(pawn.Named("PREDATOR"), prey.Named("PREY"));
             pawn.mindState?
                 .mentalStateHandler?
@@ -235,7 +234,7 @@ public static class JobGiver_GetFoodPatch
             return __result;
         }
 
-        if (!(pawn.genes?.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaUnstoppableHunger) ?? false) &&
+        if (!(pawn.genes?.HasActiveGene(ScariaZombieDefOf.Taggerung_SCP_ScariaUnstoppableHunger) ?? false) &&
             !Rand.ChanceSeeded(ScariaContaminationPatch.Settings.UnstoppableHungerChance, pawn.thingIDNumber)) return __result;
 
         prey = pawn.Map.mapPawns.AllPawnsSpawned

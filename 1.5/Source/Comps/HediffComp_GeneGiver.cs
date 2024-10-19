@@ -16,7 +16,7 @@ public class HediffComp_GeneGiver : HediffComp
     public override void CompPostMake()
     {
         Pawn pawn = this.parent.pawn;
-        if (pawn.genes != null && !Props.possibleGenes.All(g => pawn.genes.HasGene(g))) return;
+        if (pawn.genes != null && !Props.possibleGenes.All(g => pawn.genes.HasActiveGene(g))) return;
         this.shouldRemove = true;
     }
 
