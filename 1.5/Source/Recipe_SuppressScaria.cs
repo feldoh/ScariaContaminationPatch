@@ -9,7 +9,7 @@ public class Recipe_SuppressScaria : Recipe_RemoveHediff
     public override bool AvailableOnNow(Thing thing, BodyPartRecord part = null)
     {
         return thing is Pawn pawn
-               && (pawn.genes?.HasGene(ScariaZombieDefOf.Taggerung_SCP_ScariaCarrier) ?? false)
+               && (pawn.genes?.HasActiveGene(ScariaZombieDefOf.Taggerung_SCP_ScariaCarrier) ?? false)
                && base.AvailableOnNow(thing, part);
     }
 

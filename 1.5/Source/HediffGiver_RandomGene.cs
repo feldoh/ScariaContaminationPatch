@@ -11,7 +11,7 @@ public class HediffGiver_RandomGene : HediffGiver_Random
 
     public override float ChanceFactor(Pawn pawn)
     {
-        return pawn.genes == null || possibleGenes.All(g => pawn.genes.HasGene(g)) ? 0 : 1;
+        return pawn.genes == null || possibleGenes.All(g => pawn.genes.HasActiveGene(g)) ? 0 : 1;
     }
 
     public override bool OnHediffAdded(Pawn pawn, Hediff hediff)
