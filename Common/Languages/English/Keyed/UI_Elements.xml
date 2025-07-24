@@ -18,4 +18,8 @@
   <ScariaContaminationPatch_MakeBald>Clear scalp growth</ScariaContaminationPatch_MakeBald>
   <ScariaContaminationPatch_GeneImmunityLetter>Gene Mutation</ScariaContaminationPatch_GeneImmunityLetter>
   <ScariaContaminationPatch_GeneImmunityLetterText>The gene therapy applied to {0} seems to have had unexpected side-effects. It has altered their genetic makeup!\n\nIt seems they are now genetically immune to further infection by {1}.</ScariaContaminationPatch_GeneImmunityLetterText>
+  <ScariaContaminationPatch_ScariaMustBeAlive>Development points only granted if healed infected is alive</ScariaContaminationPatch_ScariaMustBeAlive>
+  <ScariaContaminationPatch_ScariaPlayerFactionOnly>Development points only granted if healed infected is player faction</ScariaContaminationPatch_ScariaPlayerFactionOnly>
+  <ScariaContaminationPatch_ScariaNonHostileOnly>Development points only granted if healed infected is non-hostile</ScariaContaminationPatch_ScariaNonHostileOnly>
+  <ScariaContaminationPatch_ScariaBasePointsOnRemoved>Fluid Ideology points for curing infected</ScariaContaminationPatch_ScariaBasePointsOnRemoved>
 </LanguageData>

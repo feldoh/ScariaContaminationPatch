@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="Scaria"]/scenarioCanAdd</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/HediffDef[defName="Scaria"]/scenarioCanAdd</xpath>
+      <value>
+        <scenarioCanAdd>true</scenarioCanAdd>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="Scaria"]</xpath>
+      <value>
+        <scenarioCanAdd>true</scenarioCanAdd>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="Scaria"]/stages</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="Scaria"]</xpath>
+      <value>
+        <stages />
+      </value>
+    </nomatch>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="Scaria"]/stages/li</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="Scaria"]/stages</xpath>
+      <value>
+        <li />
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- Minor -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/HediffDef[defName="ToxicBuildup"]/stages/li[label="minor"]/hediffGivers</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/HediffDef[defName="ToxicBuildup"]/stages/li[label="minor"]</xpath>
+      <value>
+        <hediffGivers />
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/HediffDef[defName="ToxicBuildup"]/stages/li[label="minor"]/hediffGivers</xpath>
+    <value>
+      <li Class="HediffGiver_Random" MayRequire="Ludeon.RimWorld.Biotech">
+        <hediff>Taggerung_SCP_GeneMutation</hediff>
+        <mtbDays>100</mtbDays>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- Moderate -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/HediffDef[defName="ToxicBuildup"]/stages/li[label="moderate"]/hediffGivers</xpath>
+    <value>
+      <li Class="HediffGiver_Random" MayRequire="Ludeon.RimWorld.Biotech">
+        <hediff>Taggerung_SCP_GeneMutation</hediff>
+        <mtbDays>40</mtbDays>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- Serious -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/HediffDef[defName="ToxicBuildup"]/stages/li[label="serious"]/hediffGivers</xpath>
+    <value>
+      <li Class="HediffGiver_Random">
+        <hediff>Scaria</hediff>
+        <mtbDays>50</mtbDays>
+      </li>
+      <li Class="HediffGiver_Random" MayRequire="Ludeon.RimWorld.Biotech">
+        <hediff>Taggerung_SCP_GeneMutation</hediff>
+        <mtbDays>30</mtbDays>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- Extreme -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/HediffDef[defName="ToxicBuildup"]/stages/li[label="extreme"]/hediffGivers</xpath>
+    <value>
+      <li Class="HediffGiver_Random">
+        <hediff>Scaria</hediff>
+        <mtbDays>40</mtbDays>
+      </li>
+      <li Class="HediffGiver_Random" MayRequire="Ludeon.RimWorld.Biotech">
+        <hediff>Taggerung_SCP_GeneMutation</hediff>
+        <mtbDays>10</mtbDays>
+      </li>
+    </value>
+  </Operation>
+
+</Patch>

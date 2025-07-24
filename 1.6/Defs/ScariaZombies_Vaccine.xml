@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>Taggerung_SCP_Immunix</defName>
+    <label>immunix</label>
+    <description>A drug for preventing infections before they take hold. Blocks scaria. Must be taken every three days to remain effective.\n\nThis drug only prevents new infections. It does not cure existing infections - even those that are not yet discovered.</description>
+    <possessionCount>3</possessionCount>
+    <descriptionHyperlinks>
+      <HediffDef>Taggerung_SCP_ImmunixHigh</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Drug/Penoxycyline</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>1200</WorkToMake>
+      <MarketValue>45</MarketValue>
+      <Mass>0.005</Mass>
+      <Flammability>1.7</Flammability>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>Taggerung_SCP_ImmunixHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <researchPrerequisite>Taggerung_SCP_ImmunixProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Neutroamine>2</Neutroamine>
+      <Penoxycyline>1</Penoxycyline>
+      <VPE_Mycothread MayRequire="VanillaExpanded.VPlantsEMushrooms">1</VPE_Mycothread>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>1000</listOrder>
+        <overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ResearchProjectDef>
+    <defName>Taggerung_SCP_ImmunixProduction</defName>
+    <label>Preventative Medicine</label>
+    <description>Using advanced knowledge of mycology, bioengineering, genetic-analysis, and vaccine design, devise an mRNA vaccine capable of holding the infection at bay.</description>
+    <baseCost>3000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>PenoxycylineProduction</li>
+      <li>VitalsMonitor</li>
+    </prerequisites>
+    <researchViewX>9.815</researchViewX>
+    <researchViewY>7.115</researchViewY>
+    <tab>Main</tab>
+  </ResearchProjectDef>
+
+  <HediffDef>
+    <defName>Taggerung_SCP_ImmunixHigh</defName>
+    <hediffClass>Hediff_High</hediffClass>
+    <label>immunix boost</label>
+    <description>Immunix-induced immunity to certain illnesses. This only blocks new infections; it does nothing for those who are already infected, even if their infection is dormant.</description>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.29</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <makeImmuneTo>
+          <li>Scaria</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Animals -->
+
+  <ThingDef ParentName="OrganicProductBase">
+    <defName>Taggerung_SCP_ImmunixKibble</defName>
+    <label>immunix kibble</label>
+    <description>Animal feed mixed with Immunix. Humans can technically eat it but only a rare few won't get sick. Protects for around one day.</description>
+    <descriptionHyperlinks>
+      <HediffDef>Taggerung_SCP_ImmunixHigh</HediffDef>
+    </descriptionHyperlinks>
+    <thingCategories>
+      <li>Foods</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Item/Resource/Kibble</texPath>
+    </graphicData>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <MarketValue>2.1</MarketValue>
+      <Mass>0.015</Mass>
+      <Nutrition>0.04</Nutrition>
+      <FoodPoisonChanceFixedHuman>0.8</FoodPoisonChanceFixedHuman>
+      <Flammability>1.4</Flammability>
+    </statBases>
+    <ingestible>
+      <foodType>Kibble</foodType>
+      <preferability>DesperateOnlyForHumanlikes</preferability>
+      <tasteThought>AteKibble</tasteThought>
+      <optimalityOffsetHumanlikes>-60</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>25</optimalityOffsetFeedingAnimals>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>RawVegetable_Eat</ingestSound>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>Taggerung_SCP_ImmunixHigh</hediffDef>
+          <severity>0.34</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Ingredients">
+        <performMergeCompatibilityChecks>false</performMergeCompatibilityChecks>
+        <noIngredientsFoodKind>Meat</noIngredientsFoodKind>
+      </li>
+    </comps>
+    <allowedArchonexusCount>200</allowedArchonexusCount>
+  </ThingDef>
+
+  <RecipeDef>
+    <defName>Taggerung_SCP_Make_ImmunixKibble</defName>
+    <label>make immunix laced kibble</label>
+    <description>Lace a dose of immunix into some animal kibble to protect your animals from the infection.</description>
+    <jobString>Lacing kibble with Immunix.</jobString>
+    <workAmount>450</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <recipeUsers>
+      <li>Campfire</li>
+      <li>ElectricStove</li>
+      <li>FueledStove</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Kibble</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Taggerung_SCP_Immunix</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Kibble</li>
+        <li>Taggerung_SCP_Immunix</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Taggerung_SCP_ImmunixKibble>50</Taggerung_SCP_ImmunixKibble>
+    </products>
+    <workSkill>Crafting</workSkill>
+  </RecipeDef>
+</Defs>

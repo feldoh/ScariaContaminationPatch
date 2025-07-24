@@ -30,4 +30,15 @@
         <li IfModActive="Ludeon.RimWorld.Biotech">Compatibility/Biotech</li>
         <li IfModActive="sarg.alphagenes">Compatibility/sarg.alphagenes</li>
     </v1.5>
+    <v1.6>
+        <li>Common</li>
+        <li>1.6</li>
+        <li IfModActive="CatLover366.MonkeTime">Compatibility/CatLover366.MonkeTime</li>
+        <li IfModNotActive="vanillaracesexpanded.fungoid" IfModActive="Mlie.WaSkeleton,zombiefied.zombiefied,brrainz.zombieland,Ludeon.RimWorld.Anomaly">Compatibility/ZombieRenames</li>
+        <li IfModNotActive="Mlie.WaSkeleton,zombiefied.zombiefied,brrainz.zombieland" IfModActive="vanillaracesexpanded.fungoid">Compatibility/SporeRenames</li>
+        <li IfModActive="Ludeon.RimWorld.Ideology">Compatibility/Ideology</li>
+        <li IfModActive="vanillaracesexpanded.fungoid">Compatibility/vanillaracesexpanded.fungoid</li>
+        <li IfModActive="Ludeon.RimWorld.Biotech">Compatibility/Biotech</li>
+        <li IfModActive="sarg.alphagenes">Compatibility/sarg.alphagenes</li>
+    </v1.6>
 </loadFolders>

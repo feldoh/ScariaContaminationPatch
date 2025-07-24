@@ -53,3 +53,6 @@ This mod was originally made by [@Garethp](https://github.com/Garethp). This is 
 
 * Mr Samuel Streamer for the art and various XML contributions
 * Sarg Bjornson for allowing the advanced Xenotype Nullifier, building on his original from [Alpha Genes](https://steamcommunity.com/sharedfiles/filedetails/?id=2891845502)
+
+## Continuity
+See [CONTINUITY.md](CONTINUITY.md) for details on continuity and succession of this project in the event of my death or long-term absence.
